@@ -2,8 +2,11 @@
 [Click here to install](https://the-west-scripts.github.io/The-West-Sweets/script.user.js)
 
 ## Description & Sreenshots
-This is the actual version with full https support of the script [The West Sweets](https://userscripts-mirror.org/scripts/show/150120) originally made by [Shelimov](https://forum.the-west.ru/index.php?members/20853).  
+This is the updated version of the script [The West Sweets](https://userscripts-mirror.org/scripts/show/150120) originally made by [Shelimov](https://forum.the-west.ru/index.php?members/20853).  
 This script contains some cool features which improve your gaming experience on The West.
+
+**Including**  
+[TW Script Suite](https://github.com/artificialWave/userscripts)  
 
 **Supported languages:**  
 *English  
@@ -34,12 +37,7 @@ You can select text everywhere to copy it.
 
 ***Forum last page**  
 Get to the last page of the town forum topic.*  
-**REMOVED:** Install the [twdb clothcalc](https://tw-db.info/?strana=userscript) script to use this feature.  
 <img src="https://imgur.com/RZeOZqD.png" width="600">
-
-**No energy premium**  
-Hide the message to buy premium when you ran out of energy.  
-![](https://imgur.com/KH3346n.png)
 
 **Regeneration timer**  
 You can see how much time is left for full energy and hp.  
@@ -74,20 +72,15 @@ Old official homepage: [tws.shelimov.me](https://web.archive.org/web/20170410055
 There is also an addon available for this script. You can find it here: [Deluxe Jobs](https://greasyfork.org/scripts/11380).
 
 ## Installation
-Install first the browser extension for your browser:
-
-* ![](https://imgur.com/UTxgUkJ.jpg) Firefox: [Greasemonkey](https://addons.mozilla.org/firefox/addon/greasemonkey/)
-* ![](https://imgur.com/KSoOXLJ.png) Chrome: [Tampermonkey](https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo/)
-* ![](https://imgur.com/QbACShJ.png) Microsoft Edge: [Tampermonkey](https://www.microsoft.com/store/p/tampermonkey/9nblggh5162s/)
-* ![](https://imgur.com/S6GHleD.png) Safari: [Tampermonkey](https://safari.tampermonkey.net/tampermonkey.safariextz)
-* ![](https://imgur.com/sDowwI7.jpg) Opera: [Tampermonkey](https://addons.opera.com/extensions/details/tampermonkey-beta/)
-
-Now install the user script.
+![](https://imgur.com/UTxgUkJ.jpg) ![](https://imgur.com/KSoOXLJ.png) ![](https://imgur.com/QbACShJ.png) ![](https://imgur.com/S6GHleD.png) ![](https://imgur.com/sDowwI7.jpg) **PC**
+* Install first one of these extensions for your browser:  
+[Tampermonkey](https://www.tampermonkey.net/) / [Violentmonkey](https://violentmonkey.github.io/#installation)
+* Now install the user script.
 
 ![](https://imgur.com/lvfODGq.jpg)**Smartphones & Tablets**
 * Create a new bookmark in your mobile browser
 * Edit the bookmark and copy this to its address field:
 
-`javascript:document.body.appendChild(document.createElement('script')).src='https://the-west-scripts.github.io/The-West-Sweets/script.user.js'`
+`javascript:document.body.appendChild(document.createElement('script')).src='//the-west-scripts.github.io/The-West-Sweets/script.user.js'`
 
 * Now open the game and click the bookmark to start the script
