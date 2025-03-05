@@ -1,11 +1,11 @@
 // ==UserScript==
 // @name The-West Sweets
 // @namespace TWSweets
-// @author Shelimov (updated by Tom Robert)
+// @author Tom Robert (Shelimov/Slygoxx)
 // @description Cool features!
 // @include https://*.the-west.*/game.php*
 // @exclude https://classic.the-west.net*
-// @version 1.2.8
+// @version 1.3.0
 // @grant none
 // ==/UserScript==
 // translation:Shelimov(Russian),Tom Robert(German),pepe100(Spanish),jccwest(Portuguese),Lutte Finale(French),anto81(Italian),0ndra(Polish),JackJeruk(Hungarian),Jamza(Czech&Slovak),Timemod Herkumo(Greek)
@@ -17,15 +17,16 @@
   document.body.removeChild(script);
 })(function () {
   TWS = {
-    version: '1.2.8',
-    name: 'TWSweets',
-    author: 'Shelimov (updated by Tom Robert)',
+    version: '1.3.0',
+    name: 'TW Sweets',
+    author: 'Tom Robert (Shelimov/Slygoxx)',
     minGame: '2.06',
     maxGame: Game.version.toString(),
-    website: 'https://greasyfork.org/scripts/11379',
-    updateUrl: 'https://tomrobert.safe-ws.de/sUp.js',
-    updateAd: 'http://adf.ly/1LtS60',
-    date: '27 January 2018',
+    url: '//tomrobert.safe-ws.de/',
+    website: 'https://the-west-scripts.github.io/The-West-Sweets/',
+    Images: function (img, file) {
+      return this.url + img + (file ? '.jpg' : '.png');
+    },
     langs: {
       en: {
         language: 'English',
@@ -45,7 +46,6 @@
         enable_beeper_title: '<b>Beeper</b> - Sound alert at new private chat message',
         enable_town_button: 'Enable ExTB',
         enable_town_title: '<b>ExtTB</b><i>(Extension for Town Button)</i>:<br>Extend town button in bottom bar.',
-        enable_noenergy: 'Remove premium message at low energy',
         enable_menutop: 'Keep the menu and scripts bar always on top',
         to_last_page: 'Go to last page of the topic',
         wir: 'WIR',
@@ -120,7 +120,6 @@
         enable_beeper_title: '<b>Beeper</b> - звуковое уведомление о новом сообщении в приват',
         enable_town_button: 'Включить кнопку "Город"',
         enable_town_title: 'Добавляет справа кнопку <b>"город"</b>, которая содержит функции для быстрого управления "городскими" задачами. (Открыть сплетни, лечь спать в ближ. форт, рынок, церковь и т.п)',
-        enable_noenergy: 'Remove premium message at low energy',
         enable_menutop: 'Keep the menu and scripts bar always on top',
         to_last_page: 'К последней странице',
         wir: 'WIR',
@@ -143,6 +142,7 @@
         sheriff: 'Шериф',
         cityhall: 'Town hall',
         dont_have_hotel: 'У тебя не построен отель!',
+        craft: 'Craft',
         DuelSafer_found: 'DuelSafer',
         DuelSafer_no_town: 'This player is without a town!',
         DuelSafer_friend_text: 'О нет! Это союзник! Вы действительно хотите напасть?',
@@ -195,7 +195,6 @@
         enable_beeper_title: '<b>Beeper</b> - Ein Ton erklingt, wenn man angeflüstert wird',
         enable_town_button: 'ExtTB aktivieren',
         enable_town_title: '<b>ExtTB</b><i>(Extension for Town Button)</i>:<br>Der Stadtbutton wird mit verschiedenen Links erweitert.',
-        enable_noenergy: 'Hinweis auf Erholung PA entfernen',
         enable_menutop: 'Halte die Menü- und Scriptsleiste immer im Vordergrund',
         to_last_page: 'Gehe zur letzten Seite',
         wir: 'WIR',
@@ -218,6 +217,7 @@
         sheriff: 'Sheriff',
         cityhall: 'Stadthalle',
         dont_have_hotel: 'Deine Stadt hat kein Hotel!',
+        craft: 'Herstellen',
         DuelSafer_found: 'DuelSafer',
         DuelSafer_no_town: 'Dieser Spieler ist stadtlos!',
         DuelSafer_friend_text: 'Freund wirklich duellieren?',
@@ -270,7 +270,6 @@
         enable_beeper_title: '<b>Beeper</b> - Sonido de alerta sobre nuevo mensaje',
         enable_town_button: 'Enable ExTB',
         enable_town_title: '<b>ExtTB</b><i>(Extensión para el botón ciudad)</i>:<br>Extiende el botón ciudad en la barra inferior.',
-        enable_noenergy: 'Remove premium message at low energy',
         enable_menutop: 'Keep the menu and scripts bar always on top',
         to_last_page: 'Ir a la última página del hilo',
         wir: 'WIR',
@@ -293,6 +292,7 @@
         sheriff: 'Sheriff',
         cityhall: 'Ayuntamiento',
         dont_have_hotel: '¡No dispones de hotel!',
+        craft: 'Elaborar',
         DuelSafer_found: 'Duelo-Seguro',
         DuelSafer_no_town: '¡Este jugador no tiene ciudad!',
         DuelSafer_friend_text: '¿Quieres atacar un amigo?',
@@ -345,7 +345,6 @@
         enable_beeper_title: '<b>Beeper</b> - Som de alerta sobre novo sussurro',
         enable_town_button: 'Habilitar botao "Cidade"',
         enable_town_title: 'Voce pode gerenciar instantaneamente a maioria das tarefas em sua cidade com este script, que e a adicao de um botao com o mesmo nome no lado direito. (Ex: Ir dormir no forte mais proximo, mercado, igreja etc)',
-        enable_noenergy: 'Remove premium message at low energy',
         enable_menutop: 'Keep the menu and scripts bar always on top',
         to_last_page: 'Ir para a ultima pagina',
         wir: 'WIR',
@@ -368,6 +367,7 @@
         sheriff: 'Xerife',
         cityhall: 'Town hall',
         dont_have_hotel: 'Voce nao tem um hotel!',
+        craft: 'Produção',
         DuelSafer_found: 'DuelSafer',
         DuelSafer_no_town: 'This player is without a town!',
         DuelSafer_friend_text: 'Esse jogador e uma alianca. Ataca-lo mesmo assim?',
@@ -420,7 +420,6 @@
         enable_beeper_title: '<b>Beeper</b> - Alerte sonore pour les chuchos',
         enable_town_button: 'Active le bouton "Ville"',
         enable_town_title: 'Permet de prevoir/activer des taches automatiques (dormir a l\'hotel, au fort, ouvrir le sheriff...',
-        enable_noenergy: 'Remove premium message at low energy',
         enable_menutop: 'Keep the menu and scripts bar always on top',
         to_last_page: 'Derniere page',
         wir: 'WIR',
@@ -443,6 +442,7 @@
         sheriff: 'Sheriff',
         cityhall: 'Town hall',
         dont_have_hotel: 'Tu n\'as pas d\'hotel!',
+        craft: 'Fabriquer',
         DuelSafer_found: 'Duels Securises',
         DuelSafer_no_town: 'This player is without a town!',
         DuelSafer_friend_text: 'Ce joueur est allie, l\'attaquer quand meme?',
@@ -495,7 +495,6 @@
         enable_beeper_title: 'Segnale acustico – Suono di avviso se si ottiene un messaggio privato',
         enable_town_button: 'Attiva pulsante  "Citta"',
         enable_town_title: 'Con questo script si puo immediatamente gestire la maggior parte dei compiti della tua citta, grazie all\'aggiunta del pulsante citta sul lato destro. (Es.: voci aperte, andare a dormire al piu vicino forte, mercato, chiesa ecc.)',
-        enable_noenergy: 'Remove premium message at low energy',
         enable_menutop: 'Keep the menu and scripts bar always on top',
         to_last_page: 'Vai all\'ultima pagina',
         wir: 'WIR',
@@ -518,6 +517,7 @@
         sheriff: 'Sceriffo',
         cityhall: 'Town hall',
         dont_have_hotel: 'Non si dispone di un albergo!',
+        craft: 'Produci',
         DuelSafer_found: 'Duello sicuro',
         DuelSafer_no_town: 'This player is without a town!',
         DuelSafer_friend_text: 'Questo giocatore e un alleato. Attaccare lui in ogni caso?',
@@ -570,7 +570,6 @@
         enable_beeper_title: '<b>Brzęczek</b> - Dźwięk jeżeli gracz otrzyma wiadomość szeptem',
         enable_town_button: 'Włącz przycisk "Miasto"',
         enable_town_title: 'Za pomocą tego przycisku, otrzymujemy dostęp do wiekszości budynków w mieście.<br>Po prawej stronie zostanie dodany przycisk.<br>(Np.: Forum, spanie w koszarach, targ, kościól e t.c.)',
-        enable_noenergy: 'Remove premium message at low energy',
         enable_menutop: 'Keep the menu and scripts bar always on top',
         to_last_page: 'Idź do ostatniej strony',
         wir: 'WIR',
@@ -593,6 +592,7 @@
         sheriff: 'Szeryf',
         cityhall: 'Town hall',
         dont_have_hotel: 'Nie posiadasz hotelu!',
+        craft: 'Wytwórz',
         DuelSafer_found: 'Bezpieczne pojedynki',
         DuelSafer_no_town: 'This player is without a town!',
         DuelSafer_friend_text: 'Ten przeciwnik jest sojusznikiem. Chcesz go zaatakować?',
@@ -645,7 +645,6 @@
         enable_beeper_title: 'Bekapcsolásával fgyelmeztető hangjelzést kapsz, ha neved <i>elhangzik</i> a fő chat-ablakban vagy privát üzeneted ( <i>suttogás</i> ) érkezik, továbbá egy hangerőszabályzó / némító gomb is megjelenik a képernyőn a Chat közelében.<br><br><b>ICQ</b>: az eredetileg izraeli fejlesztésű csevegőprogramból kinyert hang. ( az ICQ 2010 óta a <i>Mail.ru</i> tulajdona ),<br><b>QIP</b>: a <i>Quiet Internet Pager</i> nevű, főleg orosz nyelvterületen ismert és használt csevegőprogramból ( készítette: Ilgam Zyulkorneev ) kinyert hang,<br><b>VK</b>: a <i>VKontakt</i> elnevezésű, főleg orosz nyelvterületen és izraelben ismert és kedvelt facebook-klónból kinyert hang.',
         enable_town_button: '"Városom" gomb mutatása',
         enable_town_title: 'Engedélyezésével egy új gomb jelenik meg a jobb oldali Menüsoron, mellyel gyorsan hozzáférhetsz városod épületeihez, egy kattintással a legközelebbi Szövetséges Erődbe mehetsz aludni, stb.',
-        enable_noenergy: 'Remove premium message at low energy',
         enable_menutop: 'Keep the menu and scripts bar always on top',
         to_last_page: 'Ugrás az utolsó oldalra',
         wir: 'WIR',
@@ -668,6 +667,7 @@
         sheriff: 'Sheriff',
         cityhall: 'Town hall',
         dont_have_hotel: 'Nincs Hoteled!',
+        craft: 'Gyártás',
         DuelSafer_found: 'Párbaj-segéd',
         DuelSafer_no_town: 'This player is without a town!',
         DuelSafer_friend_text: 'Ez a Játékos a Szövetségesed! Mindenképpen megtámadod?',
@@ -720,7 +720,6 @@
         enable_beeper_title: '<b>Beeper</b> - Zvukové upozornení na novou privátní zprávu v chatu (šepot)',
         enable_town_button: 'Povolit ExTB',
         enable_town_title: '<b>ExtTB</b><i>(Rozšíření pro Tlačidlo města)</i>:<br>Rozšířené tlačítko města ve spodní liště.',
-        enable_noenergy: 'Zakázat prémiovú zprávu při nízké energii',
         enable_menutop: 'Keep the menu and scripts bar always on top',
         to_last_page: 'Přejít na poslední stránku tématu',
         wir: 'WIR',
@@ -743,6 +742,7 @@
         sheriff: 'Šerif',
         cityhall: 'Radnica',
         dont_have_hotel: 'Nemáš hotel!',
+        craft: 'Vyrábět',
         DuelSafer_found: 'DuelSafer',
         DuelSafer_no_town: 'Tenhle hráč je bez města!',
         DuelSafer_friend_text: 'Opravdu chceš zaútočit na svého přítele?',
@@ -795,7 +795,6 @@
         enable_beeper_title: '<b>Beeper</b> - Zvukové upozornenie na novú privátnu správu (šepot)',
         enable_town_button: 'Povoliť ExTB',
         enable_town_title: '<b>ExtTB</b><i>(Rozšírenie pre Tlačidlo mesta)</i>:<br>Rozšírené tlačidlo mesta v spodnej lište.',
-        enable_noenergy: 'Zakázať prémiovú správu pri nízkej energii',
         enable_menutop: 'Keep the menu and scripts bar always on top',
         to_last_page: 'Prejsť na poslednú stránku témy',
         wir: 'WIR',
@@ -818,6 +817,7 @@
         sheriff: 'Šerif',
         cityhall: 'Radnica',
         dont_have_hotel: 'Nemáš hotel!',
+        craft: 'Výroba',
         DuelSafer_found: 'DuelSafer',
         DuelSafer_no_town: 'Tento hráč je bez mesta!',
         DuelSafer_friend_text: 'Naozaj chceš zaútočiť na svojho priateľa?',
@@ -870,9 +870,8 @@
         enable_beeper_title: '<b> Beeper </b> -<u><i> Ειδοποίηση ήχου σε νέο ιδιωτικό μήνυμα συνομιλίας</i></u><br><br>Με την ενεργοποίηση, κάθε φορά που λαμβάνετε ένα νέο ιδιωτικό μήνυμα<br><b>(Ψίθυρος)</b> θα λαμβάνετε ένα ειδικό ηχητικό σήμα. Μπορείτε να επιλέξετε<br>τον ήχο που σας αρέσει στην λίστα που σας έχουμε ετοιμάσει παρακάτω<br>ή να προσθέσε τον δικό σας μοναδικό ήχο.',
         enable_town_button: 'Ενεργοποίηση: ΕγΚΠ',
         enable_town_title: '<b>ΕγΚΠ</b><i> - <u>Επέκταση για Κουμπί Πόλης</u></i>:<br><br>Αυτό το χαρακτηριστικό σας εμφανίζει μια λίστα<br>από διάφορες χρήσιμες λειτουργείες, στο κουμπί<br>"Πόλη" της γραμμής μενού, τις οποίες θα μπορείτε<br>να χρησιμοποιήσετε με το πάτημα ενός κουμπιού.',
-        enable_noenergy: 'Κατάργηση μηνύματος premium με χαμηλή ενέργεια',
         enable_menutop: 'Κρατήστε τη γραμμή scripts και τη γραμμή μενού πάντα στην κορυφή',
-        to_last_page: 'Πηγαίνετε στην τελευταία σελίδα του θέματος',
+        to_last_page: 'Go to last page of the topic',
         wir: 'WIR ',
         wir_enabler: 'Ενεργοποίηση: WIR',
         wir_enabler_title: '- <u>(West Inventory Reducer)</u></i><br><br>Αυτό το χαρακτηριστικό σας επιτρέπει να ορίσετε τον αριθμό<br>των στοιχείων ανά γραμμή στο παράθυρο "Αποθέματα".<br><br><b>ΣΥΜΒΟΥΛΗ:</b> Ενεργοποιώντας αυτή τη λειτουργία, μπορείτε<br>όχι μόνο να ορίσετε τον αριθμό στοιχείων ανά γραμμή<br>αλλά και να μεταβείτε σε μια πιο βολική γραμμή κύλισης,<br>αντί να έχετε την μπάρα με τις σελίδες στο κάτω μέρος<br>του παραθύρου των Αποθεμάτων σας.',
@@ -893,6 +892,7 @@
         sheriff: 'Σερίφης',
         cityhall: 'Δημαρχείο Πόλης',
         dont_have_hotel: 'Δεν έχετε ξενοδοχείο',
+        craft: 'Σύνθεση',
         DuelSafer_found: 'DuelSafer',
         DuelSafer_no_town: 'Αυτός ο παίκτης είναι εκτός πόλης',
         DuelSafer_friend_text: 'Θέλετε να μονομαχήσετε τον φίλο σας;',
@@ -927,80 +927,70 @@
         Reg_perH: 'Αναγέννηση ανά ώρα',
         Reg_missing: 'Σας λείπει συνολικά το',
       },
-
     },
     updateLang: function () {
-      var lg = TWS.langs;
-      TWS.lang = lg[localStorage.getItem('scriptsLang')] ? localStorage.getItem('scriptsLang') : lg[Game.locale.substr(0, 2)] ? Game.locale.substr(0, 2) : 'en';
-      TWSlang = lg[TWS.lang];
-    },
-    Images: {
-      controlMenu: 'data:image/png;base64,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',
+      var lgs = TWS.langs,
+      lg = [localStorage.getItem('scriptsLang'), Game.locale.substr(0, 2)];
+      TWS.lang = lgs[lg[0]] ? lg[0] : lgs[lg[1]] ? lg[1] : 'en';
+      TWSlang = lgs[TWS.lang];
     },
     Settings: function () {
-      function i() {
-        var r = {
-          beeperSound: 1,
-          enableBeeper: true,
-          enableNoEnergy: true,
-          enableSelectableText: true,
-          enableTownButton: true,
-          enableMenuTop: true,
-          enableTimelefters: true,
-          enableWir: true,
-          enableWirExt: false,
-          safeFriends: false,
-          language: Game.locale.substr(0, 2),
-          wirSize: 5
-        };
-        t = $.extend(r, t);
-        localStorage.setItem(n, JSON.stringify(t));
-      }
-      function s(e, r) {
-        if (t[e])
-          return;
-        t[e] = r;
-        localStorage.setItem(n, JSON.stringify(t));
-      }
-      function o(e) {
-        return t[e] === undefined ? null : t[e];
-      }
-      function u(e, r) {
-        if (t[e] === undefined)
-          return false;
-        t[e] = r;
-        localStorage.setItem(n, JSON.stringify(t));
-        new UserMessage(TWSlang.saved, 'success').show();
-        return true;
-      }
-      var t,
-      n = 'tws_settings',
-      r = function () {
-        t = JSON.parse(localStorage.getItem(n)) || {};
-        i();
-      }
-      ();
+      var n = 'tws_settings',
+      t = JSON.parse(localStorage.getItem(n)) || {};
+      t = $.extend({
+        beeperSound: 1,
+        enableBeeper: true,
+        enableLastPage: true,
+        riverColor: 'default',
+        enableKOTime: true,
+        enableAchievTrack: true,
+        enableCraftWin: false,
+        enableSelectableText: true,
+        enableTownButton: true,
+        enableMenuTop: true,
+        enableTimelefters: true,
+        enableWir: false,
+        enableWirExt: false,
+        safeFriends: false,
+        wirSize: 5
+      }, t);
       return {
-        get: o,
-        set: u,
-        reg: s
+        get: function (e) {
+          return t[e] === undefined ? null : t[e];
+        },
+        set: function (e, r) {
+          if (t[e] === undefined)
+            return false;
+          t[e] = r;
+          localStorage.setItem(n, JSON.stringify(t));
+          new UserMessage(TWSlang.saved, 'success').show();
+          return true;
+        },
+        reg: function (e, r) {
+          if (t[e])
+            return;
+          t[e] = r;
+          localStorage.setItem(n, JSON.stringify(t));
+        }
       };
     }
     (),
   };
   TWS.updateLang();
-  var fmfb = function (l) {
-    return 'https://forum.the-west.' + l + '/index.php?conversations/add&to=Tom Robert';
+  var fmfb = function () {
+    var fms = [['de', 'deutsches Forum'], ['net', 'English forum'], ['pl', 'forum polski'], ['es', 'foro español'], ['ru', 'Русский форум'], ['fr', 'forum français'], ['it', 'forum italiano'], ['net', 'beta forum', 'beta.']],
+    add = '<h1>' + TWSlang.contact + '</h1><ul style="margin-left:15px;line-height:18px;"><li>Send a message to <a target=\'_blank\' href="//www.the-west.de/?ref=west_invite_linkrl&player_id=647936&world_id=13&hash=7dda">Tom Robert on German world Arizona</a></li><li>Message me on one of these The West Forum:<br>';
+    for (var l of fms)
+      add += '/ <a target=\'_blank\' href="https://forum.' + (l[2] || '') + 'the-west.' + l[0] + '/index.php?conversations/add&to=Tom Robert">' + l[1] + '</a> ' + (l[0] == 'es' ? '<br>' : '');
+    return add + '/<br>I will get an e-mail when you sent me the message <img src="images/chat/emoticons/smile.png"></li></ul>';
   };
-  TheWestApi.register('TWS', TWS.name, TWS.minGame, TWS.maxGame, TWS.author, TWS.website).setGui('<br><i>Language: </i>' + TWSlang.language + '<br><br>' + TWSlang.ApiGui + '<br><br><i>' + TWS.name + ' v' + TWS.version +
-    '</i><br><br><br><b>' + TWSlang.contact + ':</b><ul style="margin-left:15px;"><li>Send a message to <a target=\'_blanck\' href="http://om.the-west.de/west/de/player/?ref=west_invite_linkrl&player_id=647936&world_id=13&hash=7dda">Tom Robert on German world Arizona</a></li>' +
-    '<li>Contact me on <a target=\'_blanck\' href="https://greasyfork.org/forum/messages/add/Tom Robert">Greasy Fork</a></li>' +
-    '<li>Message me on one of these The West Forum:<br>/ <a target=\'_blanck\' href="' + fmfb('de') + '">deutsches Forum</a> / ' +
-    '<a target=\'_blanck\' href="' + fmfb('net') + '">English forum</a> / <a target=\'_blanck\' href="' + fmfb('pl') + '">forum polski</a> / ' +
-    '<a target=\'_blanck\' href="' + fmfb('es') + '">foro español</a> /<br>/ <a target=\'_blanck\' href="' + fmfb('ru') + '">Русский форум</a> / ' +
-    '<a target=\'_blanck\' href="' + fmfb('fr') + '">forum français</a> / <a target=\'_blanck\' href="' + fmfb('it') + '">forum italiano</a> / ' +
-    '<a target=\'_blanck\' href="https://forum.beta.the-west.net/index.php?conversations/add&to=Tom Robert">beta forum</a> /<br>I will get an e-mail when you sent me the message <img src="../images/chat/emoticons/smile.png"></li></ul>');
+  TheWestApi.register('TWS', TWS.name, TWS.minGame, TWS.maxGame, TWS.author, TWS.website).setGui('<br><i>Language: </i>' + TWSlang.language + '<br><br>' + TWSlang.ApiGui + '<br><br><i>' + TWS.name + ' v' + TWS.version + '</i><br><br>' + fmfb());
   TWS.GUIControl = new function () {
+    var t = {},
+    n = [],
+    r,
+    s,
+    i = false;
     function o() {
       r.getContentPane().innerHTML = '';
       r.fireEvent(TWE('WINDOW_DESTROY'), window);
@@ -1008,80 +998,74 @@
       i = false;
       s = null;
     }
-    function u(n) {
-      if (!t[n])
-        n = 'general';
-      if (n == s && i) {
+    function iWin(tid) {
+      if (!t[tid])
+        tid = 'general';
+      if (tid == s && i) {
         return;
       }
       if (s)
         t[s].onLeave(r);
-      s = n;
-      $.each(t, function (e, t) {
-        var i = t.content;
-        if (e == n) {
-          r.setSize.apply(r, t.size);
-          r.setTitle(t.name);
-          t.onOpen(r);
-          i.fadeIn('fast');
+      s = tid;
+      $.each(t, function (e, g) {
+        var cont = g.content;
+        if (e == tid) {
+          r.setSize.apply(r, g.size);
+          r.setTitle((g.tabName || g.name) + g.version);
+          g.onOpen(r);
+          cont.fadeIn('fast');
           return;
         }
-        i.hide();
+        cont.hide();
       });
-      r.activateTab(n);
+      r.activateTab(tid);
     }
     function a() {
-      r = wman.open('tws', 'TWSweets', 'noreload').setMiniTitle('TWS');
+      r = wman.open('tws', TWS.name, 'noreload').setMiniTitle('TWS');
       r.destroy = o;
       i = true;
-      $.each(t, function (e, t) {
-        r.addTab(t.name + t.version, e, function () {
-          u(e);
+      $.each(t, function (e, h) {
+        r.addTab(h.name, e, function () {
+          iWin(e);
         });
-        r.appendToContentPane(t.content);
+        r.appendToContentPane(h.content);
       });
-      for (var s = 0, b = n.length; s < b; s++) {
-        var f = n[s];
+      for (var num = 0, b = n.length; num < b; num++) {
+        var f = n[num];
         if (f[2])
           $(f[2], t[f[0]].content).append(f[1]);
         else
           t[f[0]].content.append(f[1]);
       }
     }
-    var t = {},
-    n = [],
-    r,
-    s,
-    i = false;
     this.open = function (t) {
-      var n = $('.tws');
-      if (n.length) {
-        if (n.is(':hidden'))
+      var win = $('.tws');
+      if (win.length) {
+        if (win.is(':hidden'))
           wman.reopen('tws');
-        u(t);
+        iWin(t);
         return;
       }
       a();
-      u(t);
+      iWin(t);
     };
-    this.addTab = function (n) {
-      var r = n.tid || n.name.toLowerCase().replace(/ /g, ''),
-      i = t[r] = {};
-      i.content = $('<div></div>').append(n.content);
-      i.onOpen = $.isFunction(n.onOpen) ? n.onOpen : function () {};
-      i.onLeave = $.isFunction(n.onLeave) ? n.onLeave : function () {};
-      i.size = n.size || [748, 471];
-      i.name = n.name || n.tid;
-      i.version = n.version && ' v' + n.version || '';
-      if (n.menu_shortcut !== false)
-        this.Rightside.regTab(i.name, r);
+    this.addTab = function (tab) {
+      var r = tab.tid || tab.name.toLowerCase().replace(/ /g, ''),
+      tb = t[r] = {};
+      tb.content = $('<div>').append(tab.content);
+      tb.onOpen = typeof tab.onOpen === "function" ? tab.onOpen : function () {};
+      tb.onLeave = typeof tab.onLeave === "function" ? tab.onLeave : function () {};
+      tb.size = tab.size || [748, 471];
+      tb.name = tab.name;
+      tb.tabName = tab.tabName || tab.name;
+      tb.version = tab.version && ' v' + tab.version || '';
+      if (tab.menu_shortcut !== false)
+        this.Rightside.regTab(tb.name, r);
     };
-    this.addTo = function (r, i, s) {
-      if (arguments.length < 2 || !t[r])
+    this.addTo = function (id, txt, j) {
+      if (arguments.length < 2 || !t[id])
         return;
-      n.push([r,
-          typeof i == 'string' ? $(i) : i,
-          s]);
+      n.push([id, typeof txt == 'string' ? $(txt) : txt, j]);
     };
   }
   ();
@@ -1094,29 +1078,28 @@
     function i() {
       selectBox.show();
       $selectBox.css({
-        right: 37,
+        right: 30,
         top: 3
       });
-      $but.append($selectBox);
+      $el.append($selectBox);
       $selectBox.hide();
     }
     function o() {
       $el.on('mouseover', function () {
-        $but.css('background-position', '-25px 0');
+        $el.css('background-position', '-25px 0');
         $selectBox.show();
       });
       $el.on('mouseleave', function () {
-        $but.css('background-position', '0 0');
+        $el.css('background-position', '0 0');
         $selectBox.hide();
       });
     }
     var t = $('#ui_menubar'),
-    n = $('<div class="ui_menucontainer"><div id="tws_menu_icon"></div><div class="menucontainer_bottom"></div></div>'),
-    $but = $('#tws_menu_icon', n),
-    $el = $but.parent(),
+    n = $('<div class="ui_menucontainer"><div id="tws_menu_icon" class="menulink"></div><div class="menucontainer_bottom"></div></div>'),
+    $el = $('#tws_menu_icon', n),
     selectBox = new west.gui.Selectbox().addListener(function (e) {
-        TWS.GUIControl.open(e);
-      }),
+      TWS.GUIControl.open(e);
+    }),
     $selectBox = selectBox.getMainDiv();
     r();
     this.regTab = function (e, t) {
@@ -1126,7 +1109,7 @@
     this.addIcon = function (n, r) {
       if (n === undefined || r === undefined)
         return;
-      var i = $('<div id="tws_' + n + '"></div>').click(r),
+      var i = $('<div id="tws_' + n + '">').click(r),
       s = $('<div class="ui_menucontainer"><div class="menucontainer_bottom"></div></div>');
       t.append(s.append(i));
     };
@@ -1135,7 +1118,7 @@
   TWS.GUIControl.Style = new function () {
     var e = document.getElementsByTagName('head')[0],
     t = document.createElement('style'),
-    n = '#tws_menu_icon { width: 25px; height: 25px; background: url(\'' + TWS.Images.controlMenu + '\'); background-position: 0 0;  }\n' + '#tws_menu_icon .tw2gui_selectbox .arrow { width: 12px; height: 22px; background-position: -12px 0px; background-image: url(../images/tw2gui/selectbox_arrows.png); right: -10px; left: auto; top: auto; }\n';
+    n = '#tws_menu_icon { width: 25px; height: 25px; background: url(' + TWS.Images('sweetsMenu') + '); background-position: 0 0;  }\n' + '#tws_menu_icon .tw2gui_selectbox .arrow { width: 12px; height: 22px; background-position: -12px 0px; background-image: url(images/tw2gui/selectbox_arrows.png); right: -10px; left: auto; top: auto; }\n';
     t.innerHTML = n;
     e.appendChild(t);
     this.append = function (r) {
@@ -1162,9 +1145,8 @@
       }
       if (e.version)
         this.version = e.version;
-      if (i) {
+      if (i)
         TWS.GUIControl.Style.append(i);
-      }
       var o = arguments;
       this._getConstructorArgs = function (e) {
         return o[e];
@@ -1175,15 +1157,16 @@
     }
     function r(t, v) {
       function i() {
-        if (v.init) {
-          var e = v.init(this);
+        var control = v.control ? 'control' : v.init ? 'init' : ''; //old deluxejobs
+        if (control) {
+          var e = v[control](this);
           if (typeof e == 'object')
             v.DOM = e;
         }
       }
       switch (t.type) {
       case n.TAB:
-        v.DOM = $('<div id="tws_' + (t.tid ? t.tid : t.name.toLowerCase().replace(/ /g, '')) + '"></div>');
+        v.DOM = $('<div id="tws_' + (t.tid ? t.tid : t.name.toLowerCase().replace(/ /g, '')) + '">');
         i.call(this);
         t.content = v.DOM;
         TWS.GUIControl.addTab(t);
@@ -1224,48 +1207,51 @@
   ();
   var mod = TWS.Module;
   TWS.GUIControl.General = mod({
-      name: TWSlang.general,
-      version: TWS.version,
-      type: mod.TAB,
-      tid: 'general'
-    }, {
-      append: function (e) {
-        this.getGUI().scrollpane.appendContent(e);
-      },
-      createBlock: function (t, n, r) {
-        r = r && ' v' + r || '';
-        if (arguments.length < 2)
-          return;
-        var i = $('<div class="tws_block"><b>' + t + r + '</b><hr></div>').append(n);
-        this.append(i);
-      },
-      appendToPatches: function (e) {
-        this.getGUI().modifications.append(e);
-      }
-    }, {
-      main_block: $('<div class="tws_block"><b>' + TWSlang.main + '</b><hr></div>'),
-      modifications: $('<div class="tws_block"><b>' + TWSlang.patches_title + '</b><hr></div>'),
-      scrollpane: null,
-      init: function () {
-        this.scrollpane = new west.gui.Scrollpane(null, true);
-        this.main_block.append('<p>' + TWSlang.chooseLang + ':</p>').append(this.getLangBar());
-        this.scrollpane.appendContent(this.main_block).appendContent(this.modifications);
-        return $(this.scrollpane.getMainDiv()).attr('id', 'tws_general');
-      },
-      getLangBar: function () {
-        var langBox = new west.gui.Combobox('tws_changelang');
-        $.each(TWS.langs, function (a, b) {
-          langBox.addItem(a, b.language);
-        });
-        langBox.select(TWS.lang).addListener(function (e) {
+    name: TWSlang.general,
+    tabName: TWS.name,
+    version: TWS.version,
+    type: mod.TAB,
+    tid: 'general'
+  }, {
+    append: function (e) {
+      this.getGUI().scrollpane.appendContent(e);
+    },
+    createBlock: function (t, n, r) {
+      r = r && ' v' + r || '';
+      if (arguments.length < 2)
+        return;
+      var i = $('<div class="tws_block"><b>' + t + r + '</b><hr></div>').append(n);
+      this.append(i);
+    },
+    appendToPatches: function (e) {
+      this.getGUI().modifications.append(e);
+    }
+  }, {
+    main_block: $('<div class="tws_block"><b>' + TWSlang.main + '</b><hr></div>'),
+    modifications: $('<div class="tws_block"><b>' + TWSlang.patches_title + '</b><hr></div>'),
+    scrollpane: null,
+    control: function () {
+      this.scrollpane = new west.gui.Scrollpane(null, true);
+      this.main_block.append('<p>' + TWSlang.chooseLang + ':</p>').append(this.getLangBar());
+      this.scrollpane.appendContent(this.main_block).appendContent(this.modifications);
+      return $(this.scrollpane.getMainDiv()).attr('id', 'tws_general');
+    },
+    getLangBar: function () {
+      var langBox = new west.gui.Combobox();
+      $.each(TWS.langs, function (a, b) {
+        langBox.addItem(a, b.language);
+      });
+      langBox.select(TWS.lang).addListener(function (e) {
+        if (e != TWS.lang) {
           localStorage.setItem('scriptsLang', e);
           TWS.updateLang();
           if (confirm(TWSlang.need_reload))
             location.reload(true);
-        });
-        return langBox.getMainDiv();
-      }
-    }, '#tws_general { width: 100%; height: 355px; margin-top: 10px;}\n' + '#tws_general .tw2gui_scrollpane_clipper_contentpane { height: 340px; }\n' + '#tws_general .tws_block { width: 45%; float: left; }\n' + '#tws_general .tw2gui_checkbox { float: left; clear: left; margin-bottom: 5px; }\n' + '#tws_general .tws_block:nth-child(even) { float: right; }\n' + '#tws_copyright { position:absolute; bottom: 0px; right:5px; font-size:10px; }\n' + '.tws_block { margin: 5px; border: 1px solid #000000; -moz-border-radius: 10px; -webkit-border-radius: 10px; -khtml-border-radius: 10px; -o-border-radius: 10px; border-radius: 10px; background: rgba(175, 146, 94, 0.5); padding: 10px; }\n' + '.tws_block hr { color: #000; background-color: #000; border: 0px none; height: 1px; box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.6); margin: 5px 0px 5px 0px; }\n' + '.tws_help_icon { background: url(https://www.the-west.ru/images/tw2gui/iconset.png); width: 16px; height: 16px; position: absolute; background-position: -67px -64px; cursor: help; }\n' + '#tws_all .tw2gui_checkbox { float: left; clear: left; margin-top: 5px; }');
+        }
+      });
+      return langBox.getMainDiv();
+    }
+  }, '#tws_general { width: 100%; height: 355px; margin-top: 10px;}\n' + '#tws_general .tw2gui_scrollpane_clipper_contentpane { height: 390px; }\n' + '#tws_general .tws_block { width: 45%; float: left; }\n' + '#tws_general .tw2gui_checkbox { float: left; clear: left; margin-bottom: 5px; }\n' + '#tws_general .tws_block:nth-child(even) { float: right; }\n' + '#tws_copyright { position:absolute; bottom: 0px; right:5px; font-size:10px; }\n' + '.tws_block { margin: 5px; border: 1px solid #000000; -moz-border-radius: 10px; -webkit-border-radius: 10px; -khtml-border-radius: 10px; -o-border-radius: 10px; border-radius: 10px; background: rgba(175, 146, 94, 0.5); padding: 10px; }\n' + '.tws_block hr { color: #000; background-color: #000; border: 0px none; height: 1px; box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.6); margin: 5px 0px 5px 0px; }\n' + '.tws_help_icon { background: url(images/tw2gui/iconset.png); width: 16px; height: 16px; position: absolute; background-position: -67px -64px; cursor: help; }\n' + '#tws_all .tw2gui_checkbox { float: left; clear: left; margin-top: 5px; }');
   TWS.Patches = {
     SText: mod({
       name: 'Selectable text',
@@ -1280,7 +1266,7 @@
       },
       selectableForum: function () {
         $('iframe[src=\'forum.php\']').load(function () {
-          content = $(this).contents();
+          var content = $(this).contents();
           content.find('head').append(TWS.Patches.SText.style);
         });
       },
@@ -1303,784 +1289,1411 @@
         this.DOMNodeInserted.disconnect();
       }
     }, {
-      init: function () {
-        return (new west.gui.Checkbox(TWSlang.enable_select, '', function (e) {
-            TWS.Settings.set('enableSelectableText', e);
-            if (e)
-              TWS.Patches.SText.on();
-            else
-              TWS.Patches.SText.off();
-          })).setSelected(TWS.Settings.get('enableSelectableText'), true).getMainDiv();
+      control: function (t) {
+        return new west.gui.Checkbox(TWSlang.enable_select, '', function (e) {
+          TWS.Settings.set('enableSelectableText', e);
+          if (e)
+            t.on();
+          else
+            t.off();
+        }).setSelected(TWS.Settings.get('enableSelectableText'), 1).getMainDiv();
       }
     }),
-    noEnergy: mod({
-      name: 'No Energy Premium',
-      version: 1,
+    FLPage: mod({
+      name: 'Forum Last Page',
+      version: 1.3,
       type: mod.PATCH
     }, {
       init: function () {
-        if (TWS.Settings.get('enableNoEnergy'))
+        if (TWS.Settings.get('enableLastPage'))
           this.on();
       },
+      handler: function (d) {
+        var t = $(this).contents();
+        if (t.find("#thread_overview").length && !t.find('.twdb_lastpost').length) {
+          t.find('.row').each(function (t) {
+            var n = $(this),
+            i = Math.floor(n.find('.cell_4').html() / 10),
+            r = n.find('.lastreply'),
+            s = n.find('.cell_1 a').attr('onclick').match(/\d+/);
+            r.append('<img src="' + TWS.Images('lastpost') + '" class="twdb_lastpost" style="cursor:pointer;position:absolute;margin-left:5px;" title="' + TWSlang.to_last_page + '" onclick="Forum.openThread(' + s + ', ' + i + ')"></img>');
+          });
+        } else if (d.data++ < 3) //try 3 more times
+          setTimeout(TWS.Patches.FLPage.handler.bind(this), 500, {
+            data: d.data
+          });
+      },
       on: function () {
-        Premium.buyable.backupEnergy = Premium.buyable.backupEnergy || Premium.buyable.energy;
-        Premium.buyable.energy = false;
+        var that = this;
+        ForumWindow.open_tws = ForumWindow.open_tws || ForumWindow.open;
+        ForumWindow.open = function () {
+          ForumWindow.open_tws.apply(this, arguments);
+          $("iframe[src='forum.php']").on('load', 0, that.handler);
+        };
       },
       off: function () {
-        Premium.buyable.energy = Premium.buyable.backupEnergy;
+        ForumWindow.open = ForumWindow.open_tws;
       }
     }, {
       init: function () {
-        return (new west.gui.Checkbox(TWSlang.enable_noenergy, '', function (e) {
-            TWS.Settings.set('enableNoEnergy', e);
+        return (new west.gui.Checkbox(TWSlang.enable_lastpage, '', function (e) {
+            TWS.Settings.set('enableLastPage', e);
             if (e)
-              TWS.Patches.noEnergy.on();
+              TWS.Patches.FLPage.on();
             else
-              TWS.Patches.noEnergy.off();
-          })).setSelected(TWS.Settings.get('enableNoEnergy'), true).getMainDiv();
+              TWS.Patches.FLPage.off();
+          })).setSelected(TWS.Settings.get('enableLastPage'), true).getMainDiv();
       }
     }),
   };
   TWS.Beeper = mod({
-      name: 'Chat Beeper',
-      version: 1.3,
-      type: mod.MOD
-    }, {
-      init: function () {
-        this.updateSound();
-        if (TWS.Settings.get('enableBeeper'))
-          this.on();
-      },
-      on: function () {
-        EventHandler.listen('chat_tell_received', this.play, this);
-        AudioController.tws_play = AudioController.tws_play || AudioController.play;
-        AudioController.play = function (sN) {
-          if (sN == 'newmsg')
+    name: 'Chat Beeper',
+    version: 1.3,
+    type: mod.MOD
+  }, {
+    init: function () {
+      this.updateSound();
+      if (TWS.Settings.get('enableBeeper'))
+        this.on();
+    },
+    on: function () {
+      EventHandler.listen('chat_tell_received', this.play, this);
+      AudioController.play_tws = AudioController.play_tws || AudioController.play;
+      AudioController.play = function (sN) {
+        if (sN == 'newmsg')
+          return;
+        AudioController.play_tws.apply(this, arguments);
+      };
+    },
+    off: function () {
+      EventHandler.unlistenByContext('chat_tell_received', this);
+      AudioController.play = AudioController.play_tws;
+    },
+    sounds: [0, 'bum', 'chime', 'coin', 'coin2', 'icq', 'qip', 'tinkle', 'trumpet', 'vk', ],
+    updateSound: function () {
+      var gS = TWS.Settings.get('beeperSound');
+      if (this.sounds[gS])
+        this.currSound = TWS.url + this.sounds[gS] + '.mp3';
+      else if (gS)
+        this.currSound = gS;
+      else
+        this.currSound = 'sounds/newmsg.mp3';
+    },
+    play: function () {
+      new Audio(this.currSound).play();
+    },
+  }, {
+    control: function (t) {
+      var div = $('<div>'),
+      beCo = new west.gui.Combobox('tws_beeper_changesound').addItem(0, TWSlang.default_sound).addItem(1, 'Bum').addItem(2, 'Chime').addItem(3, 'Coin').addItem(4, 'Coin 2').addItem(5, 'ICQ').addItem(6, 'QIP').addItem(7, 'Tinkle').addItem(8, 'Trumpet').addItem(9, 'VK').addItem(10, TWSlang.beeper_sound + '...').select(typeof TWS.Settings.get('beeperSound') == 'string' ? 10 : TWS.Settings.get('beeperSound')).addListener(function (v) {
+        var tone = TWS.Settings.get('beeperSound');
+        if (v == 10) {
+          var exm = 'https://             .mp3',
+          inp = prompt(TWSlang.beeper_sound + ':', exm);
+          if (!inp && inp != exm) {
+            beCo.select(tone);
             return;
-          AudioController.tws_play.apply(this, arguments);
-        };
-      },
-      off: function () {
-        EventHandler.unlistenByContext('chat_tell_received', this);
-        AudioController.play = AudioController.tws_play;
-      },
-      sounds: {
-        1: 'bum',
-        2: 'chime',
-        3: 'coin',
-        4: 'coin2',
-        5: 'icq',
-        6: 'qip',
-        7: 'tinkle',
-        8: 'trumpet',
-        9: 'vk',
-      },
-      updateSound: function () {
-        var gS = TWS.Settings.get('beeperSound');
-        if (this.sounds[gS])
-          this.currSound = 'https://tomrobert.safe-ws.de/' + this.sounds[gS] + '.mp3';
-        else if (gS)
-          this.currSound = gS;
-        else
-          this.currSound = 'sounds/newmsg.mp3';
-      },
-      play: function () {
-        new Audio(this.currSound).play();
-      },
-    }, {
-      init: function (t) {
-        var div = $('<div></div>'),
-        beCo = (new west.gui.Combobox('tws_beeper_changesound')).addItem(0, TWSlang.default_sound).addItem(1, 'Bum').addItem(2, 'Chime').addItem(3, 'Coin').addItem(4, 'Coin 2').addItem(5, 'ICQ').addItem(6, 'QIP').addItem(7, 'Tinkle').addItem(8, 'Trumpet').addItem(9, 'VK').addItem(10, TWSlang.beeper_sound + '...').select(typeof TWS.Settings.get('beeperSound') == 'string' ? 10 : TWS.Settings.get('beeperSound')).addListener(function (v) {
-          if (v == 10) {
-            var inp = prompt(TWSlang.beeper_sound + ':', 'https://             .mp3');
-            if (!inp) {
-              beCo.select(TWS.Settings.get('beeperSound'));
-              return;
-            }
-            v = inp;
           }
+          v = inp;
+        }
+        if (v != tone) {
           TWS.Settings.set('beeperSound', v);
           t.updateSound();
-        }),
-        beBo = (new west.gui.Checkbox(TWSlang.enable_beeper, '', function (e) {
-            TWS.Settings.set('enableBeeper', e);
+        }
+      }),
+      beBo = new west.gui.Checkbox(TWSlang.enable_beeper, '', function (e) {
+        TWS.Settings.set('enableBeeper', e);
+        if (e)
+          t.on();
+        else
+          t.off();
+      }).setSelected(TWS.Settings.get('enableBeeper'), 1).setTitle(TWSlang.enable_beeper_title).getMainDiv(),
+      beBu = new west.gui.Button(TWSlang.listen, function () {
+        if (TWS.Settings.get('enableBeeper'))
+          t.play();
+      }).getMainDiv();
+      div.append(beBo, beCo.getMainDiv(), $(beBu).css('float', 'right'));
+      return div;
+    }
+  }, '#tws_beeper { width: 36px; height: 145px; position: fixed; left: 50%; z-index: 15; bottom: 15px; margin-left: -320px; }' + '#tws_beeper_changesound { float: left; clear: left; }');
+  TWS.Timelefters = mod({
+    type: mod.PATCH,
+    version: 2.1
+  }, {
+    $charContainer: $('#ui_character_container'),
+    $tlContainer: $('<div id="tws_tlContainer">'),
+    init: function () {
+      var pop1 = new MousePopup(),
+      pop2 = new MousePopup(),
+      el1 = $('<p id="tws_tlHp">').addMousePopup(pop1),
+      el2 = $('<p id="tws_tlEnergy">').addMousePopup(pop2);
+      this.$tlContainer.append(el1).append(el2);
+      new this.TimeLefter('maxHealth', 'healthRegen', 'health', 'healthDate', function (time, perH, next, pc) {
+        pop1.setXHTML(s(TWSlang.HealthTL_to + ': <b>%1</b><br>' + TWSlang.Reg_perH + ': <b>%2</b><br>' + TWSlang.HealthNext + ': <b>%3</b><br>' + TWSlang.Reg_missing + ': <b>%4%</b>', time, perH, next, pc));
+        el1.html(time);
+      }).startTicker();
+      new this.TimeLefter('maxEnergy', 'energyRegen', 'energy', 'energyDate', function (time, perH, next, pc) {
+        pop2.setXHTML(s(TWSlang.EnergyTL_to + ': <b>%1</b><br>' + TWSlang.Reg_perH + ': <b>%2</b><br>' + TWSlang.EnergyNext + ': <b>%3</b><br>' + TWSlang.Reg_missing + ': <b>%4%</b>', time, perH, next, pc));
+        el2.html(time);
+      }).startTicker();
+      if (TWS.Settings.get('enableTimelefters'))
+        this.on();
+    },
+    on: function () {
+      this.$charContainer.append(this.$tlContainer);
+    },
+    off: function () {
+      this.$tlContainer.remove();
+    },
+    TimeLefter: function (max, regen, current, date, r) {
+      function reT() {
+        perH = charM * charR;
+        one = 3600 / perH;
+        toGo = charM - charC;
+        sec = toGo * one;
+        rest = one - Game.getServerTime() + charD;
+        pc = Math.round(100 / charM * toGo);
+      }
+      function startT() {
+        checkT();
+        subT();
+        r(dur(sec), perH, dur(rest), pc);
+      }
+      function checkT() {
+        if (charM == Character[max] && charR == Character[regen] && charC == Character[current] && charD == Character[date])
+          return;
+        charM = Character[max];
+        charR = Character[regen];
+        charC = Character[current];
+        charD = Character[date];
+        reT();
+      }
+      function subT() {
+        if (sec > 1)
+          sec--;
+        if (rest > 1)
+          rest--;
+      }
+      function dur(v) {
+        return v.formatDuration();
+      }
+      var charM = Character[max],
+      charR = Character[regen],
+      charC = Character[current],
+      charD = Character[date],
+      perH,
+      sec,
+      f,
+      one,
+      toGo,
+      rest,
+      pc;
+      this.startTicker = function () {
+        f = setInterval(startT, 1000);
+      };
+      this.stopTicker = function () {
+        clearInterval(f);
+      };
+      reT();
+    }
+  }, {
+      control: function (t) {
+        var div = new west.gui.Checkbox(TWSlang.enable_timelefters, '', function (v) {
+          TWS.Settings.set('enableTimelefters', v);
+          if (v)
+            t.on();
+          else
+            t.off();
+        }).setSelected(TWS.Settings.get('enableTimelefters'), 1);
+        return div.getMainDiv();
+      }
+    }, '#tws_tlContainer { width: 50px; top: 144px; position: relative; }\n' + '#tws_tlContainer p { font-size: 9px; position: relative; cursor: help; left: 4px; color: #FFF; }\n' + '#tws_tlHp { top: 2px; }\n' + '#tws_tlEnergy { top: 5px; }');
+  TWS.Wir = mod({
+    type: mod.MOD,
+    version: 1.4,
+    name: TWSlang.wir
+  }, {
+    methodEdited: null,
+    init: function () {
+      setTimeout(function () {
+        if (TWS.Settings.get('enableWir'))
+          TWS.Wir.on();
+      }, 3000);
+    },
+    on: function () {
+      if (!this.methodEdited)
+        this.editInventoryLoad();
+      this.addCSS();
+      Inventory.size = 99999;
+      Inventory.sizeSearch = 99999;
+    },
+    bigInv: function () {
+      if (Inventory.width > 304)
+        return true;
+      return false;
+    },
+    addCSS: function (s) {
+      if (TWS.Settings.get('enableWir') || s == 1) {
+        var t = s || parseInt(TWS.Settings.get('wirSize'));
+        if (this.bigInv())
+          t *= 2;
+        switch (t) {
+        case 6:
+          t = [
+            36, 40, 2, 2, 15, 264, 'auto', -5, 42,
+          ];
+          break;
+        case 5:
+          t = [
+            42, 48, 3, 3, 18, 264, 'auto', -5, 30,
+          ];
+          break;
+        case 4:
+          t = [
+            53, 60, 3, 4, 23, 264, 'auto', -5, 20,
+          ];
+          break;
+        case 12:
+          t = [
+            37, 41, 2, 2, 15, 692, 'auto', 0, 128,
+          ];
+          break;
+        case 10:
+          t = [
+            45, 51, 3, 3, 18, 694, 'auto', 0, 91,
+          ];
+          break;
+        case 8:
+          t = [
+            53, 60, 3, 4, 23, 692, 'auto', 0, 66,
+          ];
+          break;
+        case 2:
+          t = [
+            53, 60, 3, 4, 23, 692, 'hidden', 0, 66,
+          ];
+          break;
+        default:
+          t = [
+            53, 60, 3, 4, 23, 264, 'hidden', 5, 20,
+          ];
+          break;
+        }
+        var n = '#bag .item.item_inventory .tw_item.item_inventory_img { width: ' + t[0] + 'px; height: ' + t[0] + 'px; margin-left: ' + t[2] + 'px !important; margin-top: ' + t[3] + 'px !important; }\n' +
+          '#bag .item.item_inventory { width: ' + t[1] + 'px !important; height: ' + t[1] + 'px !important; background-size: contain !important; }\n' +
+          '#bag .count { min-width: ' + t[4] + 'px !important; }\n' +
+          '#bag > .pinned > .item { background-size: auto !important; }\n' +
+          '#bag { width: ' + t[5] + 'px !important; overflow-y: ' + t[6] + '; margin-left: ' + t[7] + 'px;}';
+        $('head').append($('<style type="text/css">' + n + '</style>'));
+        Inventory.latestSize = t[8];
+      }
+    },
+    editInventoryLoad: function () {
+      if (this.methodEdited)
+        return;
+      Inventory.firstLoad_tws = Inventory.firstLoad;
+      Inventory.firstLoad = function () {
+        Inventory.firstLoad_tws.apply(this, arguments);
+        $('#bag', Inventory.DOM).off('mousewheel');
+        if (TWS.Settings.get('enableWirExt')) {
+          var button2 = $('<div class="tw2gui_window_buttons_closeall" title="<b>' + TWSlang.ext + '</b&gt"></div>').click(function () {
+            Inventory.dockedWindow && Inventory.dockedWindow.destroy();
+            Inventory.window.destroy();
+          });
+          $(".tw2gui_window_buttons", Inventory.window.divMain).append(button2);
+        }
+      };
+      Inventory.setCategoryActive_tws = Inventory.setCategoryActive;
+      Inventory.setCategoryActive = function (category) {
+        Inventory.setCategoryActive_tws.apply(this, arguments);
+        var bigInv = TWS.Wir.bigInv(),
+        heig = bigInv ? 366 : 305,
+        margb = bigInv ? -20 : 0;
+        if (category == "set" || category == "custom") {
+          heig = bigInv ? 332 : 257;
+          margb = bigInv ? 16 : 50;
+        }
+        document.getElementById("bag").style = "height:" + heig + "px!important;margin-bottom:" + margb + "px;";
+      };
+      this.methodEdited = true;
+    },
+    off: function () {
+      this.methodEdited = null;
+      Inventory.firstLoad = Inventory.firstLoad_tws;
+      Inventory.setCategoryActive = Inventory.setCategoryActive_tws;
+      Inventory.size = this.bigInv() ? 66 : 20;
+      Inventory.sizeSearch = this.bigInv() ? 55 : 16;
+      this.addCSS(1);
+    }
+  }, {
+    control: function (t) {
+      var div = $('<div>').append(new west.gui.Checkbox(s(TWSlang.wir_enabler, 'WIR'), '', function (f) {
+            TWS.Settings.set('enableWir', f);
+            if (f)
+              t.on();
+            else
+              t.off();
+          }).setSelected(TWS.Settings.get('enableWir'), 1).setTitle('<b>' + TWSlang.wir + '</b><i>' + TWSlang.wir_enabler_title).getMainDiv()).append((new west.gui.Checkbox(TWSlang.ext_enabler, '', function (g) {
+              TWS.Settings.set('enableWirExt', g);
+            })).setSelected(TWS.Settings.get('enableWirExt'), 1).setTitle(TWSlang.ext_enabler_title).getMainDiv()).append($('<p>' + TWSlang.wir_on_one_line + ':</p>').css({
+            'float': 'left',
+            clear: 'left'
+          })).append(new west.gui.Combobox('wir_sizer').addItem(4, s('%1 ' + TWSlang.wir_on_line, 4)).addItem(5, s('%1 ' + TWSlang.wir_on_line, 5)).addItem(6, s('%1 ' + TWSlang.wir_on_line, 6)).select(TWS.Settings.get('wirSize')).addListener(function (h) {
+            if (h != TWS.Settings.get('wirSize')) {
+              TWS.Settings.set('wirSize', h);
+              t.addCSS(h);
+            }
+          }).getMainDiv());
+      return div;
+    }
+  },
+      '#wir_sizer { float: left; clear: left; }');
+  TWS.ExtTB = mod({
+    type: mod.PATCH,
+    version: 1.3,
+    name: 'ExtTB'
+  }, {
+    selectBox: null,
+    button: null,
+    items: null,
+    enabled: null,
+    init: function () {
+      var that = this;
+      this.addItems();
+      this.selectBox = new west.gui.Selectbox().setWidth(100).addListener(this.listener);
+      for (var t in this.items)
+        this.selectBox.addItem(t, this.items[t][0], this.items[t][1]);
+      this.selectBox.divWrap.remove();
+      this.selectBox.getMainDiv().hide();
+      var val = setInterval(function () {
+        if ($('.button.city').length > 0) {
+          clearInterval(val);
+          if (TWS.Settings.get('enableMenuTop')) {
+            document.getElementById('ui_bottombar').style.zIndex = 20;
+            document.getElementById('ui_menubar').style.zIndex = 20;
+          } else
+            document.getElementById('ui_menubar').style.zIndex = 16;
+          that.selectBox.show();
+          $('div.tw2gui_modal_fixed').remove();
+          that.button = $('.button.city').append(that.selectBox.getMainDiv());
+          if (TWS.Settings.get('enableTownButton'))
+            that.on();
+        }
+      }, 2000);
+    },
+    editCityButton: function (t, n, r) {
+      if (r === undefined)
+        r = TWS.ExtTB;
+      if (!n.town_id) {
+        r.off();
+        $('.city.dock-image').off('click').on('click', function () {
+          west.window.Blackboard.toggleOpen();
+        });
+      } else {
+        $('.city.dock-image').off('click').on('click', function () {
+          TownWindow.toggleOpen(n.x, n.y);
+          r.selectBox.getMainDiv().hide();
+        });
+      }
+      r.button.off('click');
+    },
+    addItems: function () {
+      var e = Character.homeTown,
+      n = {};
+      n.bank = [
+        TWSlang.bank,
+        TWSlang.open + TWSlang.bank,
+        function () {
+          BankWindow.open(e.town_id);
+        }
+      ];
+      n.saloon = [
+        TWSlang.saloon,
+        TWSlang.open + TWSlang.saloon,
+        function () {
+          SaloonWindow.open(e.town_id);
+        }
+      ];
+      n.sleep = [
+        TWSlang.sleep,
+        TWSlang.sleep_in_hotel,
+        function () {
+          TWS.ExtTB.sleep(e.town_id);
+        }
+      ];
+      n.forum = [
+        TWSlang.forum,
+        TWSlang.open + TWSlang.forum,
+        function () {
+          ForumWindow.open();
+        }
+      ];
+      n.market = [
+        TWSlang.market,
+        TWSlang.open + TWSlang.market,
+        function () {
+          Ajax.remoteCallMode('town', 'get_town', {
+            x: e.x,
+            y: e.y
+          }, function (t) {
+            if (t.error)
+              return new UserMessage(t.error).show();
+            MarketWindow.open(e.town_id, t.allBuildings.market.stage);
+          });
+        }
+      ];
+      n.pray = [
+        TWSlang.pray,
+        TWSlang.pray_in_church,
+        function () {
+          ChurchWindow.start(e.town_id);
+        }
+      ];
+      n.sheriff = [
+        TWSlang.sheriff,
+        TWSlang.open + TWSlang.sheriff,
+        function () {
+          SheriffWindow.open(e.town_id);
+        }
+      ];
+      n.hall = [
+        TWSlang.cityhall,
+        TWSlang.open + TWSlang.cityhall,
+        function () {
+          CityhallWindow.open(e.town_id);
+        }
+      ];
+      this.items = n;
+    },
+    listener: function (e) {
+      TWS.ExtTB.items[e][2]();
+    },
+    sleep: function (e) {
+      var t;
+      Ajax.remoteCallMode('building_hotel', 'get_data', {
+        town_id: e
+      }, function (n) {
+        if (n.hotel_level > 0 && !n.error) {
+          switch (n.hotel_level) {
+          case 5:
+            t = 'luxurious_apartment';
+            break;
+          case 4:
+            t = 'apartment';
+            break;
+          case 3:
+            t = 'hotel_room';
+            break;
+          case 2:
+            t = 'bedroom';
+            break;
+          case 1:
+            t = 'cubby';
+            break;
+          }
+        } else {
+          new UserMessage(TWSlang.dont_have_hotel, 'error').show();
+          return;
+        }
+        TaskQueue.add(new TaskSleep(e, t));
+      });
+    },
+    show: function () {
+      TWS.ExtTB.selectBox.getMainDiv().show();
+      var e = TWS.ExtTB.button.offset();
+      TWS.ExtTB.selectBox.setPosition(e.left + 26, e.top + 5);
+    },
+    hide: function () {
+      TWS.ExtTB.selectBox.getMainDiv().hide({
+        duration: 100,
+        always: true
+      });
+    },
+    on: function () {
+      var e = this;
+      EventHandler.listen('char_home_town_changed', this.editCityButton, 'TWSExt');
+      EventHandler.listen('character_level_up', function () {
+        e.editCityButton(null, Character.homeTown, e);
+      }, 'TWSExt');
+      this.button.on('mouseenter', this.show);
+      this.button.on('mouseleave', this.hide);
+      this.editCityButton(null, Character.homeTown, this);
+    },
+    off: function () {
+      EventHandler.unlistenByContext('char_home_town_changed', 'TWSExt');
+      EventHandler.unlistenByContext('character_level_up', 'TWSExt');
+      this.button.off('mouseenter', this.show);
+      this.button.off('mouseleave', this.hide);
+    },
+    toggleM: function (on) {
+      if (on) {
+        document.getElementById('ui_bottombar').style.zIndex = 20;
+        document.getElementById('ui_menubar').style.zIndex = 20;
+      } else {
+        document.getElementById('ui_bottombar').style.zIndex = 15;
+        document.getElementById('ui_menubar').style.zIndex = 16;
+      }
+    },
+  }, {
+    control: function (t) {
+      var div = $('<div>').append(new west.gui.Checkbox(TWSlang.enable_town_button, '', function (e) {
+            TWS.Settings.set('enableTownButton', e);
             if (e)
               t.on();
             else
               t.off();
-          })).setSelected(TWS.Settings.get('enableBeeper'), true).setId('tws_beeper_enabled').setTitle(TWSlang.enable_beeper_title).getMainDiv(),
-        beBu = (new west.gui.Button(TWSlang.listen, function () {
-            if (TWS.Settings.get('enableBeeper'))
-              t.play();
-          })).getMainDiv();
-        div.append(beBo, beCo.getMainDiv(), $(beBu).css('float', 'right'));
-        return div;
-      }
-    }, '#tws_beeper { width: 36px; height: 145px; position: fixed; left: 50%; z-index: 15; bottom: 15px; margin-left: -320px; }' + '#tws_beeper_changesound { float: left; clear: left; }');
-  TWS.Timelefters = mod({
-      type: mod.PATCH,
-      version: 2.1
-    }, {
-      $charContainer: $('#ui_character_container'),
-      $tlContainer: $('<div id="tws_tlContainer"></div>'),
-      init: function () {
-        var pop1 = new MousePopup(),
-        pop2 = new MousePopup(),
-        el1 = $('<p id="tws_tlHp"></p>').addMousePopup(pop1),
-        el2 = $('<p id="tws_tlEnergy"></p>').addMousePopup(pop2);
-        this.$tlContainer.append(el1).append(el2);
-        (new this.TimeLefter('maxHealth', 'healthRegen', 'health', 'healthDate', function (time, perH, next, pc) {
-            pop1.setXHTML(s(TWSlang.HealthTL_to + ': <b>%1</b><br>' + TWSlang.Reg_perH + ': <b>%2</b><br>' + TWSlang.HealthNext + ': <b>%3</b><br>' + TWSlang.Reg_missing + ': <b>%4%</b>', time, perH, next, pc));
-            el1.html(time);
-          })).startTicker();
-        (new this.TimeLefter('maxEnergy', 'energyRegen', 'energy', 'energyDate', function (time, perH, next, pc) {
-            pop2.setXHTML(s(TWSlang.EnergyTL_to + ': <b>%1</b><br>' + TWSlang.Reg_perH + ': <b>%2</b><br>' + TWSlang.EnergyNext + ': <b>%3</b><br>' + TWSlang.Reg_missing + ': <b>%4%</b>', time, perH, next, pc));
-            el2.html(time);
-          })).startTicker();
-        if (TWS.Settings.get('enableTimelefters'))
-          this.on();
-      },
-      on: function () {
-        this.$charContainer.append(this.$tlContainer);
-      },
-      off: function () {
-        this.$tlContainer.remove();
-      },
-      TimeLefter: function (max, regen, current, date, r) {
-        function reT() {
-          perH = charM * charR;
-          one = 3600 / perH;
-          toGo = charM - charC;
-          sec = toGo * one;
-          rest = one - Game.getServerTime() + charD;
-          pc = Math.round(100 / charM * toGo);
-        }
-        function startT() {
-          checkT();
-          subT();
-          r(dur(sec), perH, dur(rest), pc);
-        }
-        function checkT() {
-          if (charM == Character[max] && charR == Character[regen] && charC == Character[current] && charD == Character[date])
-            return;
-          charM = Character[max];
-          charR = Character[regen];
-          charC = Character[current];
-          charD = Character[date];
-          reT();
-        }
-        function subT() {
-          if (sec > 1)
-            sec--;
-          if (rest > 1)
-            rest--;
-        }
-        function dur(v) {
-          return v.formatDuration();
-        }
-        var charM = Character[max],
-        charR = Character[regen],
-        charC = Character[current],
-        charD = Character[date],
-        perH,
-        sec,
-        f,
-        one,
-        toGo,
-        rest,
-        pc;
-        this.startTicker = function () {
-          f = setInterval(startT, 1000);
-        };
-        this.stopTicker = function () {
-          clearInterval(f);
-        };
-        reT();
-      }
-    }, {
-      init: function (e) {
-        var t = (new west.gui.Checkbox(TWSlang.enable_timelefters, '', function (t) {
-            TWS.Settings.set('enableTimelefters', t);
-            if (t)
-              e.on();
-            else
-              e.off();
-          })).setSelected(TWS.Settings.get('enableTimelefters'), true);
-        return t.getMainDiv();
-      }
-    }, '#tws_tlContainer { width: 50px; top: 144px; position: relative; }\n' + '#tws_tlContainer p { font-size: 9px; position: relative; cursor: help; left: 4px; color: #FFF; }\n' + '#tws_tlHp { top: 2px; }\n' + '#tws_tlEnergy { top: 5px; }');
-  TWS.Wir = mod({
-      type: mod.MOD,
-      version: 1.4,
-      name: TWSlang.wir
-    }, {
-      methodEdited: null,
-      init: function () {
-        setTimeout(function () {
-          if (TWS.Settings.get('enableWir'))
-            TWS.Wir.on();
-        }, 3000);
-      },
-      on: function () {
-        if (!this.methodEdited)
-          this.editInventoryLoad();
-        this.addCSS();
-        Inventory.size = 99999;
-        Inventory.sizeSearch = 99999;
-      },
-      bigInv: function () {
-        if (Inventory.width > 304)
-          return true;
-        return false;
-      },
-      addCSS: function (s) {
-        if (TWS.Settings.get('enableWir') || s == 1) {
-          var t = s || parseInt(TWS.Settings.get('wirSize'));
-          if (this.bigInv())
-            t *= 2;
-          switch (t) {
-          case 6:
-            t = [
-              36, 40, 2, 2, 15, 264, 'auto', -5, 42,
-            ];
-            break;
-          case 5:
-            t = [
-              42, 48, 3, 3, 18, 264, 'auto', -5, 30,
-            ];
-            break;
-          case 4:
-            t = [
-              53, 60, 3, 4, 23, 264, 'auto', -5, 20,
-            ];
-            break;
-          case 12:
-            t = [
-              37, 41, 2, 2, 15, 692, 'auto', 0, 128,
-            ];
-            break;
-          case 10:
-            t = [
-              45, 51, 3, 3, 18, 694, 'auto', 0, 91,
-            ];
-            break;
-          case 8:
-            t = [
-              53, 60, 3, 4, 23, 692, 'auto', 0, 66,
-            ];
-            break;
-          case 2:
-            t = [
-              53, 60, 3, 4, 23, 692, 'hidden', 0, 66,
-            ];
-            break;
-          default:
-            t = [
-              53, 60, 3, 4, 23, 264, 'hidden', 5, 20,
-            ];
-            break;
+          }).setSelected(TWS.Settings.get('enableTownButton'), 1).setTitle(TWSlang.enable_town_title).getMainDiv()).append(new west.gui.Checkbox(TWSlang.enable_menutop, '', function (g) {
+            TWS.Settings.set('enableMenuTop', g);
+            t.toggleM(g);
+          }).setSelected(TWS.Settings.get('enableMenuTop'), 1).getMainDiv());
+      return div;
+    }
+  },
+      '.city.button .tw2gui_selectbox { position: fixed; }\n' + '.city.button .arrow.bottom { width: 24px !important; height: 10px !important; background-position: -23px 14px !important; top: auto !important; background-image: url(images/tw2gui/selectbox_arrows.png) !important; }');
+  TWS.SlySuite = mod({
+    name: 'Script Suite',
+    version: '1.8.1',
+    type: mod.MOD
+  }, {
+    init: function () {
+      var MHi = GameMap.Helper.imgPath;
+      MHi.lookForModification_tws = MHi.lookForModification;
+      MHi.lookForModification = function (path, d) {
+        var rC = TWS.Settings.get('riverColor');
+        $('#river_hide_css').remove();
+        if (/river|deco_egg_05|quests_fluss/.test(path) && !['default', 'norivers'].includes(rC)) {
+          if (rC == 'blue')
+            return '/' + path;
+          else
+            return rC + '/' + path;
+        } else if (rC == 'norivers') {
+          var hidingrivers = document.createElement('style');
+          hidingrivers.setAttribute('id', 'river_hide_css');
+          hidingrivers.textContent = '.image[style*="river"]{display:none;}';
+          document.body.appendChild(hidingrivers);
+          return MHi.lookForModification_tws(path, d);
+        } else
+          return MHi.lookForModification_tws(path, d);
+      };
+      if (TWS.Settings.get('riverColor') != 'default')
+        this.setRiver();
+      this.KOTimer = {
+        timeleft: 0,
+        aliveAgain: 0,
+        protectedUntil: 0,
+        lastDied: Character.lastDied,
+        firstrun: function () {
+          this.started = 1;
+          if ($('.game_notification_area').length > 0)
+            $('.game_notification_area').append('<div style="position:relative;display:block;width:59px;height:59px;cursor:pointer;" class="brown" id="knockouttimer"><div id="timer"></div></div>');
+          else {
+            setTimeout(this.firstrun.bind(this), 3000);
+            return console.log('KOTimer: Couldn\'t find the notification area, trying again soon...');
           }
-          var n = '#bag .item.item_inventory .tw_item.item_inventory_img { width: ' + t[0] + 'px; height: ' + t[0] + 'px; margin-left: ' + t[2] + 'px !important; margin-top: ' + t[3] + 'px !important; }\n' +
-            '#bag .item.item_inventory { width: ' + t[1] + 'px !important; height: ' + t[1] + 'px !important; background-size: contain !important; }\n' +
-            '#bag .count { min-width: ' + t[4] + 'px !important; }\n' +
-            '#bag > .pinned > .item { background-size: auto !important; }\n' +
-            '#bag { width: ' + t[5] + 'px !important; overflow-y: ' + t[6] + '; margin-left: ' + t[7] + 'px;}';
-          $('head').append($('<style type="text/css">' + n + '</style>'));
-          Inventory.latestSize = t[8];
-        }
-      },
-      editInventoryLoad: function () {
-        if (this.methodEdited)
-          return;
-        Inventory.tws_firstLoad = Inventory.firstLoad;
-        Inventory.firstLoad = function () {
-          Inventory.tws_firstLoad.apply(this, arguments);
-          $('#bag', Inventory.DOM).off('mousewheel');
-          if (TWS.Settings.get('enableWirExt')) {
-            var button2 = $('<div class="tw2gui_window_buttons_closeall" title="<b>' + TWSlang.ext + '</b&gt"></div>').click(function () {
-                Inventory.dockedWindow && Inventory.dockedWindow.destroy();
-                Inventory.window.destroy();
-              });
-            $(".tw2gui_window_buttons", Inventory.window.divMain).append(button2);
-          }
-        };
-        Inventory.tws_setCategoryActive = Inventory.setCategoryActive;
-        Inventory.setCategoryActive = function (category) {
-          Inventory.tws_setCategoryActive.apply(this, arguments);
-          var bigInv = TWS.Wir.bigInv(),
-          heig = bigInv ? 366 : 305,
-          margb = bigInv ? -20 : 0;
-          if (category == "set" || category == "custom") {
-            heig = bigInv ? 332 : 257;
-            margb = bigInv ? 16 : 50;
-          }
-          document.getElementById("bag").style = "height:" + heig + "px!important;margin-bottom:" + margb + "px;";
-        };
-        this.methodEdited = true;
-      },
-      off: function () {
-        this.methodEdited = null;
-        Inventory.firstLoad = Inventory.tws_firstLoad;
-        Inventory.setCategoryActive = Inventory.tws_setCategoryActive;
-        Inventory.size = this.bigInv() ? 66 : 20;
-        Inventory.sizeSearch = this.bigInv() ? 55 : 16;
-        this.addCSS(1);
-      }
-    }, {
-      init: function () {
-        var t = $('<div></div>').append((new west.gui.Checkbox(s(TWSlang.wir_enabler, 'WIR'), '', function (f) {
-                TWS.Settings.set('enableWir', f);
-                if (f)
-                  TWS.Wir.on();
-                else
-                  TWS.Wir.off();
-              })).setSelected(TWS.Settings.get('enableWir'), true).setId('tws_wir_enabler').setTitle('<b>' + TWSlang.wir + '</b><i>' + TWSlang.wir_enabler_title).getMainDiv()).append((new west.gui.Checkbox(TWSlang.ext_enabler, '', function (g) {
-                TWS.Settings.set('enableWirExt', g);
-              })).setSelected(TWS.Settings.get('enableWirExt'), true).setId('tws_wir_ext_enabler').setTitle(TWSlang.ext_enabler_title).getMainDiv()).append($('<p>' + TWSlang.wir_on_one_line + ':</p>').css({
-              'float': 'left',
-              clear: 'left'
-            })).append((new west.gui.Combobox('wir_sizer')).addItem(4, s('%1 ' + TWSlang.wir_on_line, 4)).addItem(5, s('%1 ' + TWSlang.wir_on_line, 5)).addItem(6, s('%1 ' + TWSlang.wir_on_line, 6)).select(TWS.Settings.get('wirSize')).addListener(function (h) {
-              TWS.Settings.set('wirSize', h);
-              TWS.Wir.addCSS(h);
-            }).getMainDiv());
-        return t;
-      }
-    },
-      '#wir_sizer { float: left; clear: left; }');
-  TWS.ExtTB = mod({
-      type: mod.PATCH,
-      version: 1.3,
-      name: 'ExtTB'
-    }, {
-      selectBox: null,
-      button: null,
-      items: null,
-      enabled: null,
-      init: function () {
-        var that = this;
-        this.addItems();
-        this.selectBox = new west.gui.Selectbox().setWidth(100).addListener(this.listener);
-        for (var t in this.items)
-          this.selectBox.addItem(t, this.items[t][0], this.items[t][1]);
-        this.selectBox.divWrap.remove();
-        this.selectBox.getMainDiv().hide();
-        var val = setInterval(function () {
-            if ($('.button.city').length > 0) {
-              clearInterval(val);
-              if (TWS.Settings.get('enableMenuTop')) {
-                document.getElementById('ui_bottombar').style.zIndex = 20;
-                document.getElementById('ui_menubar').style.zIndex = 20;
-              } else
-                document.getElementById('ui_menubar').style.zIndex = 16;
-              that.selectBox.show();
-              $('div.tw2gui_modal_fixed').remove();
-              that.button = $('.button.city').append(that.selectBox.getMainDiv());
-              if (TWS.Settings.get('enableTownButton'))
-                that.on();
-            }
-          }, 2000);
-      },
-      editCityButton: function (t, n, r) {
-        if (r === undefined)
-          r = TWS.ExtTB;
-        if (!n.town_id) {
-          r.off();
-          $('.city.dock-image').off('click').on('click', function () {
-            west.window.Blackboard.toggleOpen();
+          $('#knockouttimer').attr({
+            'title': "Ready to duel<br>Protected until: 12/2/2015 23:50:12"
           });
-        } else {
-          $('.city.dock-image').off('click').on('click', function () {
-            TownWindow.toggleOpen(n.x, n.y);
-            r.selectBox.getMainDiv().hide();
+          $('#knockouttimer #timer').css({
+            'position': 'absolute',
+            'bottom': '0px',
+            'left': '0px',
+            'right': '0px',
+            'color': 'white',
+            'text-align': 'center',
+            'font-size': '11px',
+            'height': '30px',
+            'line-height': '30px'
           });
-        }
-        r.button.off('click');
-      },
-      addItems: function () {
-        var e = Character.homeTown,
-        n = {};
-        n.bank = [
-          TWSlang.bank,
-          TWSlang.open + TWSlang.bank,
-          function () {
-            BankWindow.open(e.town_id);
-          }
-        ];
-        n.saloon = [
-          TWSlang.saloon,
-          TWSlang.open + TWSlang.saloon,
-          function () {
-            SaloonWindow.open(e.town_id);
-          }
-        ];
-        n.sleep = [
-          TWSlang.sleep,
-          TWSlang.sleep_in_hotel,
-          function () {
-            TWS.ExtTB.sleep(e.town_id);
-          }
-        ];
-        n.forum = [
-          TWSlang.forum,
-          TWSlang.open + TWSlang.forum,
-          function () {
-            ForumWindow.open();
-          }
-        ];
-        n.market = [
-          TWSlang.market,
-          TWSlang.open + TWSlang.market,
-          function () {
-            Ajax.remoteCallMode('town', 'get_town', {
-              x: e.x,
-              y: e.y
-            }, function (t) {
-              if (t.error)
-                return (new UserMessage(t.error)).show();
-              MarketWindow.open(e.town_id, t.allBuildings.market.stage);
-            });
-          }
-        ];
-        n.pray = [
-          TWSlang.pray,
-          TWSlang.pray_in_church,
-          function () {
-            ChurchWindow.start(e.town_id);
-          }
-        ];
-        n.sheriff = [
-          TWSlang.sheriff,
-          TWSlang.open + TWSlang.sheriff,
-          function () {
-            SheriffWindow.open(e.town_id);
-          }
-        ];
-        n.hall = [
-          TWSlang.cityhall,
-          TWSlang.open + TWSlang.cityhall,
-          function () {
-            CityhallWindow.open(e.town_id);
-          }
-        ];
-        this.items = n;
-      },
-      listener: function (e) {
-        TWS.ExtTB.items[e][2]();
-      },
-      sleep: function (e) {
-        var t;
-        Ajax.remoteCallMode('building_hotel', 'get_data', {
-          town_id: e
-        }, function (n) {
-          if (n.hotel_level != 0 && !n.error) {
-            switch (n.hotel_level) {
-            case 5:
-              t = 'luxurious_apartment';
-              break;
-            case 4:
-              t = 'apartment';
-              break;
-            case 3:
-              t = 'hotel_room';
-              break;
-            case 2:
-              t = 'bedroom';
-              break;
-            case 1:
-              t = 'cubby';
-              break;
-            }
-          } else {
-            (new UserMessage(TWSlang.dont_have_hotel, 'error')).show();
-            return;
-          }
-          TaskQueue.add(new TaskSleep(e, t));
-        });
-      },
-      show: function () {
-        TWS.ExtTB.selectBox.getMainDiv().show();
-        var e = TWS.ExtTB.button.offset();
-        TWS.ExtTB.selectBox.setPosition(e.left + 26, e.top + 5);
-      },
-      hide: function () {
-        TWS.ExtTB.selectBox.getMainDiv().hide({
-          duration: 100,
-          always: true
-        });
-      },
-      on: function () {
-        var e = this;
-        EventHandler.listen('char_home_town_changed', this.editCityButton, 'TWSExt');
-        EventHandler.listen('character_level_up', function () {
-          e.editCityButton(null, Character.homeTown, e);
-        }, 'TWSExt');
-        this.button.on('mouseenter', this.show);
-        this.button.on('mouseleave', this.hide);
-        this.editCityButton(null, Character.homeTown, this);
-      },
-      off: function () {
-        EventHandler.unlistenByContext('char_home_town_changed', 'TWSExt');
-        EventHandler.unlistenByContext('character_level_up', 'TWSExt');
-        this.button.off('mouseenter', this.show);
-        this.button.off('mouseleave', this.hide);
-      },
-      toggleM: function (on) {
-        if (on) {
-          document.getElementById('ui_bottombar').style.zIndex = 20;
-          document.getElementById('ui_menubar').style.zIndex = 20;
-        } else {
-          document.getElementById('ui_bottombar').style.zIndex = 15;
-          document.getElementById('ui_menubar').style.zIndex = 16;
-        }
-      },
-    }, {
-      init: function () {
-        var t = $('<div/>').append(new west.gui.Checkbox(TWSlang.enable_town_button, '', function (e) {
-              TWS.Settings.set('enableTownButton', e);
-              if (e)
-                TWS.ExtTB.on();
-              else
-                TWS.ExtTB.off();
-            }).setSelected(TWS.Settings.get('enableTownButton'), true).setTitle(TWSlang.enable_town_title).getMainDiv()).append(new west.gui.Checkbox(TWSlang.enable_menutop, '', function (g) {
-              TWS.Settings.set('enableMenuTop', g);
-              TWS.ExtTB.toggleM(g);
-            }).setSelected(TWS.Settings.get('enableMenuTop'), true).getMainDiv());
-        return t;
-      }
-    },
-      '.city.button .tw2gui_selectbox { position: fixed; }\n' + '.city.button .arrow.bottom { width: 24px !important; height: 10px !important; background-position: -23px 14px !important; top: auto !important; background-image: url(https://www.the-west.ru/images/tw2gui/selectbox_arrows.png?4) !important; }');
-  TWS.DuelSafer = mod({
-      type: mod.TAB,
-      version: 1.5,
-      name: TWSlang.DuelSafer_found,
-      tid: 'ds'
-    }, {
-      init: function () {
-        this.Friends.init();
-        SaloonWindow.tws_startDuel = SaloonWindow.startDuel;
-        SaloonWindow.startDuel = function (playerId, allianceId, a, p, v) {
-          TWS.DuelSafer.args = arguments;
-          var duel = function () {
-            SaloonWindow.tws_startDuel.apply(SaloonWindow, TWS.DuelSafer.args);
-          };
-          if (!a) {
-            var s = TWS.DuelSafer.Friends.get(),
-            o = TWS.DuelSafer;
-            if (s.alliances.hasOwnProperty(allianceId))
-              o.showWarningMessage('alliance', allianceId);
-            else if (s.players.hasOwnProperty(playerId))
-              o.showWarningMessage('player', playerId);
-            else if (TWS.Settings.get('safeFriends') && Chat.Friendslist.isFriend('client_' + playerId))
-              o.showWarningMessage('player', 'friendlist');
-            else if (!$.isEmptyObject(s.towns)) {
-              Ajax.remoteCallMode('profile', 'init', {
-                playerId: playerId
-              }, function (e) {
-                if (!e.hasTown)
-                  return new UserMessage(TWSlang.DuelSafer_no_town);
-                var xy = e.town.town_x + '_' + e.town.town_y;
-                if (s.towns.hasOwnProperty(xy))
-                  o.showWarningMessage('town', xy);
-                else
-                  duel();
-              });
-            } else
-              duel();
-          } else
-            duel();
-        };
-        setTimeout(function () {
-          if (window.TW_Calc && TW_Calc.DuelBar && TW_Calc.DuelBar.startDuel)
-            TW_Calc.DuelBar.startDuel = SaloonWindow.startDuel;
-        }, 3000);
-      },
-      showWarningMessage: function (type, id) {
-        var i,
-        o = TWS.DuelSafer.Friends.get();
-        i = '<div>' + TWSlang.DuelSafer_friend_text + '</br></br>' + this.Friends.types[type] + ':' + '<b style=\'color:green;\'> ' + (id == 'friendlist' ? TWSlang.friendlist : o[type + 's'][id]) + '</b></div>';
-        (new west.gui.Dialog(TWSlang.DuelSafer_friend, i, 'question')).addButton('yes', function () {
-          SaloonWindow.tws_startDuel.apply(SaloonWindow, TWS.DuelSafer.args);
-        }).addButton('no').show();
-      },
-      Friends: {
-        data: null,
-        name: 'tws_duelsafer',
-        types: {
-          alliance: TWSlang.DuelSafer_from_alliance,
-          town: TWSlang.DuelSafer_from_town,
-          player: TWSlang.DuelSafer_from_player,
+          this.getTimes();
+          this.update(this);
         },
-        init: function () {
-          this.data = $.extend({
-              players: {},
-              towns: {},
-              alliances: {}
-            }, JSON.parse(localStorage.getItem(this.name)));
+        getTimes: function () {
+          var unix = Math.round(new Date().getTime() / 1000),
+          duelString = '',
+          protectionString = '';
+          this.aliveAgain = Character.getMandatoryDuelProtection();
+          this.protectedUntil = Character.getDuelProtection();
+          var serverDateAlive = get_server_date_string(false, this.aliveAgain * 1000, true).split(' '),
+          serverDateProtection = get_server_date_string(false, this.protectedUntil * 1000, true).split(' ');
+          serverDateAlive = serverDateAlive[1] + ' ' + serverDateAlive[0];
+          serverDateProtection = serverDateProtection[1] + ' ' + serverDateProtection[0];
+          if (this.aliveAgain < unix) {
+            duelString = "Ready to duel";
+            if ($('#knockouttimer').hasClass('brown'))
+              $('#knockouttimer').removeClass('brown hasMousePopup').addClass('green');
+          } else {
+            duelString = "Can duel again at: " + serverDateAlive;
+            if ($('#knockouttimer').hasClass('green'))
+              $('#knockouttimer').removeClass('green hasMousePopup').addClass('brown');
+          }
+          protectionString = "Protected until: " + serverDateProtection;
+          $('#knockouttimer').attr({
+            'title': duelString + "<br>" + protectionString
+          });
+        },
+        doUpdate: function () {
+          setTimeout(this.update.bind(this), 1000);
         },
         update: function () {
-          localStorage.setItem(this.name, JSON.stringify(this.data));
+          if (!this.aliveAgain) {
+            $('#knockouttimer').hide();
+            return this.doUpdate();
+          }
+          var unix = Math.round(new Date().getTime() / 1000);
+          if (this.protectedUntil != Character.getDuelProtection())
+            this.getTimes();
+          if (this.protectedUntil < unix) {
+            $('#knockouttimer').hide();
+            return this.doUpdate();
+          } else
+            $('#knockouttimer').show();
+          var time;
+          if (this.aliveAgain < unix) {
+            time = this.protectedUntil;
+            $('#knockouttimer').removeClass('brown').addClass('green');
+          } else {
+            time = this.aliveAgain;
+            $('#knockouttimer').removeClass('green').addClass('brown');
+          }
+          var difference = time - unix,
+          hours = Math.floor(difference / 60 / 60);
+          difference -= hours * 60 * 60;
+          var minutes = Math.floor(difference / 60);
+          difference -= minutes * 60;
+          var seconds = difference;
+          if (seconds < 0)
+            seconds = 0;
+          $('#knockouttimer #timer').html(("0" + hours).slice(-2) + ':' + ("0" + minutes).slice(-2) + ':' + ("0" + seconds).slice(-2));
+          this.doUpdate();
         },
-        add: function (e, t, n) {
-          if (!this.types[e])
+      };
+      if (TWS.Settings.get('enableKOTime'))
+        this.on('KO');
+      this.Achiev = {
+        achvList: JSON.parse(localStorage.getItem('SlySuite_Achievements')) || {},
+        allFolders: [],
+        lastUpdate: new Date(0),
+        nextFolderCheck: false,
+        start: function () {
+          this.started = 1;
+          $(function () {
+            Ajax.remoteCall('achievement', '', {
+              playerid: Character.playerId
+            }, function (r) {
+              if (r.error)
+                return new MessageError(r.msg).show();
+              for (var f in r.menu) {
+                if (!('id' in r.menu[f]))
+                  continue;
+                if (r.menu[f].id == 'overall' || r.menu[f].id == 'heroics')
+                  continue;
+                TWS.SlySuite.Achiev.allFolders.push(r.menu[f].id);
+                for (var sub in r.menu[f].sub)
+                  if ('id' in r.menu[f].sub[sub])
+                    TWS.SlySuite.Achiev.allFolders.push(r.menu[f].sub[sub].id);
+              }
+              TWS.SlySuite.Achiev.createWindow();
+              TWS.SlySuite.Achiev.editTracker();
+              TWS.SlySuite.Achiev.updateAchievements();
+            });
+          });
+          this.createButton();
+        },
+        createWindow: function () {
+          if (!GameMap.width) {
+            setTimeout(this.createWindow.bind(this), 3000);
             return;
-          this.data[e + 's'][n] = t;
-          this.update();
+          }
+          this.scrolling = new west.gui.Scrollpane(null).appendContent('<div class="achievement_tracker_container">');
+          this.window = wman.open('tws_achievTrack', null, 'chat questtracker noclose nofocus nocloseall dontminimize')
+            .setSize(350, 170)
+            .setMinSize(320, 140)
+            .addEventListener(TWE('WINDOW_MINIMIZE'), this.minimize, this)
+            .addEventListener(TWE('WINDOW_RELOAD'), this.manualUpdate, this)
+            .setResizeable(true)
+            .appendToContentPane($('<div id="ui_achievementtracker">').append(this.scrolling.getMainDiv()));
+          this.window.addTab('<div class="tw2gui-iconset" title="Achievement Tracker" style="float:left;"></div>&nbsp;Achievement Tracker', 'achievTrack', function () {});
+          this.window.dontCloseAll = true;
+          $(this.window.getMainDiv()).css({
+            left: GameMap.width - 425,
+            top: 400
+          });
+          $('#windows .tw2gui_window.questtracker .tw2gui_window_tabbar_tabs').attr({
+            'style': 'left: 2px !important'
+          });
         },
-        'delete': function (e, t) {
-          return delete this.data[e + 's'][t];
+        createButton: function () {
+          var icon = $('<div class="menulink" title="Open Achievement Tracker" style="background:url(' + TWS.Images('sweetsAchiev', 1) + ');background-position:0px 0px">').on('mouseleave', function () {
+            $(this).css('background-position', '0px 0px');
+          }).on('mouseenter', function () {
+            $(this).css('background-position', '-25px 0px');
+          }).click(function () {
+            TWS.SlySuite.Achiev.openWindow();
+          });
+          $('#tws_menu_icon').after($('<div id="Achievementtracker_button" style="display:none;">').append(icon));
         },
-        get: function (e) {
-          if (e === undefined)
-            return this.data;
-          if (!this.types[e])
-            return;
-          return this.data[e + 's'];
+        minimize: function () {
+          $(this.window.divMain).hide();
+          $('#Achievementtracker_button').show();
+          wman.minimizedIds[this.window.id] = this.window;
         },
-        clear: function () {
-          this.data = {
-            players: {},
-            towns: {},
-            alliances: {}
+        openWindow: function () {
+          $(this.window.divMain).show();
+          $('#Achievementtracker_button').hide();
+        },
+        editTracker: function () {
+          Character.trackAchievement_tws = Character.trackAchievement_tws || Character.trackAchievement;
+          Character.trackAchievement = function (a, b) {
+            TWS.SlySuite.Achiev.trackAchievement(a, b);
           };
-          this.update();
-        }
-      },
-      getId: function (e, t, n) {
-        var r,
-        i;
-        if (e == 'player')
-          Ajax.remoteCallMode("profile", "init", {
-            name: t,
+        },
+        trackAchievement: function (progress, update) {
+          if (!TWS.Settings.get('enableAchievTrack'))
+            return Character.trackAchievement_tws(progress, update);
+          var params = progress.split('-');
+          // achievement done, track next one in group
+          if (!update || params[2]) {
+            var achvId = (params[2]) ? params[2] : params[0];
+            this.setAchievement(achvId);
+          } else
+            this.setAchievement(params[1]);
+        },
+        setAchievement: function (achi) {
+          if (achi in this.achvList) {
+            delete this.achvList[achi];
+            this.removeFromTracker(achi);
+          } else {
+            this.openWindow();
+            this.achvList[achi] = {};
+            this.getAchievementData(achi);
+            this.descriptionNeeded.push(parseInt(achi));
+            if (!this.nextFolderCheck)
+              this.getFolderInfo(this.allFolders.slice());
+          }
+        },
+        manualUpdate: function () {
+          if (this.lastUpdate.getTime() < new Date().getTime() - 60000) {
+            this.window.showLoader();
+            clearTimeout(this.nextUpdate);
+            this.updateAchievements();
+            this.lastUpdate = new Date();
+            this.window.hideLoader();
+          } else {
+            secleft = 60 - Math.floor((new Date().getTime() - this.lastUpdate.getTime()) / 1000);
+            new MessageError("Updated too recently, try again in " + secleft + "s").show();
+          }
+        },
+        updateTracker: function (achi) {
+          if (this.achvList[achi].current >= this.achvList[achi].required) {
+            this.setAchievement(achi);
+            return;
+          }
+          if (!('isTime' in this.achvList[achi]))
+            this.achvList[achi].isTime = false;
+          if ($('#ui_achievementtracker #achievementtracker_' + achi).length) {
+            $('#ui_achievementtracker #achievementtracker_' + achi + ' .achievement_current').html(this.achvList[achi].isTime ? this.tcalc(this.achvList[achi].current) : this.achvList[achi].current);
+            $('#ui_achievementtracker #achievementtracker_' + achi + ' .achievement_required').html(this.achvList[achi].isTime ? this.tcalc(this.achvList[achi].required) : this.achvList[achi].required);
+            $('#ui_achievementtracker #achievementtracker_' + achi + ' .achievement_percentage').html(Math.floor(this.achvList[achi].current / this.achvList[achi].required * 100));
+            $('#ui_achievementtracker #achievementtracker_' + achi + ' .quest_requirement').attr('title', ('description' in this.achvList[achi] ? this.achvList[achi].description : ''));
+          } else {
+            $('#ui_achievementtracker .achievement_tracker_container').append('<div class="selectable" id="achievementtracker_' + achi + '">' +
+              '<div class="quest-list title">' + this.achvList[achi].title +
+              '<span class="quest-list remove" title="Remove achievement from tracker"></span></div>' +
+              '<ul class="requirement_container"><li class="quest_requirement" ' + ('description' in this.achvList[achi] ? 'title="' + this.achvList[achi].description + '"=' : '') + '>- <span class="achievement_current">' + (this.achvList[achi].isTime ? this.tcalc(this.achvList[achi].current) : this.achvList[achi].current) +
+              '</span> / <span class="achievement_required">' + (this.achvList[achi].isTime ? this.tcalc(this.achvList[achi].required) : this.achvList[achi].required) + '</span> (<span class="achievement_percentage">' +
+              (Math.floor(this.achvList[achi].current / this.achvList[achi].required * 100)) + '</span>%)</li></ul></div>');
+            $('#ui_achievementtracker #achievementtracker_' + achi + ' .quest-list.remove').click(function () {
+              TWS.SlySuite.Achiev.setAchievement(achi);
+            });
+          }
+          localStorage.setItem('SlySuite_Achievements', JSON.stringify(this.achvList));
+        },
+        getAchievementData: function (achi) {
+          Ajax.remoteCall('achievement', 'track', {
+            achvid: achi
           }, function (resp) {
             if (resp.error)
-              return n(null);
-            n(resp.playerid);
+              return new MessageError(resp.msg).show();
+            $.extend(TWS.SlySuite.Achiev.achvList[achi], {
+              title: resp.title,
+              current: resp.current,
+              required: resp.required
+            });
+            TWS.SlySuite.Achiev.updateTracker(achi);
+            Ajax.remoteCall('achievement', 'untrack');
           });
-        else
-          Ajax.remoteCall('settings', 'get_parsed_text', {
-            text: '[' + e + ']' + t + '[/' + e + ']'
-          }, function (t) {
-            var s = t.parsed_text;
-            if (s.match(/Window.open\(/) === null)
-              return n(null);
-            if (e == 'town') {
-              i = s.match(/Window.open\((\d+).(\d+)\)/);
-              r = i[1] + '_' + i[2];
-            } else if (e == 'alliance')
-              r = s.match(/Window.open\((\d+)\)/)[1];
-            n(r);
-          });
-      },
-      add: function (type, n, r) {
-        var i = this,
-        s;
-        if (!this.Friends.types[type])
-          return;
-        this.getId(type, n, function (o) {
-          if (o === null)
-            return $.isFunction(r) && r(null);
-          if (isDefined(i.Friends.get()[type + 's'][o]))
-            return $.isFunction(r) && r(false);
-          i.Friends.add(type, n, o);
-          s = {
-            id: o
-          };
-          s[type] = n;
-          if ($.isFunction(r))
-            r(s);
-        });
-      },
-      'delete': function () {
-        this.Friends.delete.apply(this.Friends, arguments);
-        this.Friends.update();
-      }
-    }, {
-      init: function (t) {
-        var n = this,
-        r = $('<div id="tws_ds_help" class="tws_help_icon" title="' + TWSlang.help_icon + '"></div>'),
-        friendsBox = (new west.gui.Checkbox(TWSlang.addfriends, '', function (e) {
-            TWS.Settings.set('safeFriends', e);
-          })).setSelected(TWS.Settings.get('safeFriends'), true).setTitle(TWSlang.addfriends).setId('tws_ds_friendsBox').getMainDiv();
-        this.towns = new this.container('tws_ds_town', 'town', {
-            open_title: TWSlang.open_town,
-            add_new: TWSlang.DuelSafer_input_town,
-            delete_title: TWSlang.delete_town,
-            not_found: TWSlang.DuelSafer_not_found_town,
-          }, function (e) {
-            var t = e.split('_');
-            TownWindow.open(t[0], t[1]);
-          });
-        this.alliances = new this.container('tws_ds_alliance', 'alliance', {
-            open_title: TWSlang.open_ally,
-            add_new: TWSlang.DuelSafer_input_alliance,
-            delete_title: TWSlang.delete_ally,
-            not_found: TWSlang.DuelSafer_not_found_ally,
-          }, function (e) {
-            AllianceWindow.open(e);
-          });
-        this.players = new this.container('tws_ds_player', 'player', {
-            open_title: TWSlang.open_player,
-            add_new: TWSlang.DuelSafer_input_player,
-            delete_title: TWSlang.delete_player,
-            not_found: TWSlang.DuelSafer_not_found_player,
-          }, function (e) {
-            PlayerProfileWindow.open(+e);
-          });
-        $.each(t.Friends.get('town'), function (e, t) {
-          n.towns.addItem(e, t);
-        });
-        $.each(t.Friends.get('alliance'), function (e, t) {
-          n.alliances.addItem(e, t);
-        });
-        $.each(t.Friends.get('player'), function (e, t) {
-          n.players.addItem(e, t);
-        });
-        this.DOM.append(this.towns.DOM, this.alliances.DOM, this.players.DOM, r, friendsBox);
-      },
-      container: function (t, n, r, i) {
-        function f(e) {
-          TWS.DuelSafer.add(n, e, function (t) {
-            if (t === null)
-              new UserMessage(r.not_found).show();
-            else if (t === false)
-              new UserMessage(TWSlang.DuelSafer_already_have).show();
-            else {
-              o.addItem(t.id, e);
-              u.setValue('');
+        },
+        removeFromTracker: function (achi) {
+          $('#ui_achievementtracker #achievementtracker_' + achi).remove();
+          if (!Object.keys(this.achvList).length)
+            this.minimize();
+          TWS.Settings.set('achvList', this.achvList);
+        },
+        updateAchievements: function () {
+          this.descriptionNeeded = [];
+          if (!Object.keys(this.achvList).length)
+            this.minimize();
+          for (var a in this.achvList) {
+            this.getAchievementData(a);
+            if (!('folder' in this.achvList[a]))
+              this.descriptionNeeded.push(parseInt(a));
+          }
+          this.nextUpdate = setTimeout(this.updateAchievements.bind(this), 10 * 60 * 1000);
+          if (this.descriptionNeeded.length)
+            this.getFolderInfo(this.allFolders.slice());
+        },
+        getFolderInfo: function (arr) {
+          if (!arr.length || !TWS.SlySuite.Achiev.descriptionNeeded.length) {
+            this.nextFolderCheck = false;
+            return;
+          }
+          Ajax.remoteCall('achievement', 'get_list', {
+            folder: arr[0],
+            playerid: Character.playerId
+          }, function (json) {
+            for (var achieve in json.achievements.progress) {
+              currentId = json.achievements.progress[achieve].id;
+              if ($.inArray(currentId, TWS.SlySuite.Achiev.descriptionNeeded) != -1) {
+                TWS.SlySuite.Achiev.descriptionNeeded.splice(TWS.SlySuite.Achiev.descriptionNeeded.indexOf(currentId), 1);
+                TWS.SlySuite.Achiev.achvList[currentId].description = json.achievements.progress[achieve].desc;
+                TWS.SlySuite.Achiev.achvList[currentId].folder = arr[0];
+                if (json.achievements.progress[achieve].meta[0].match('^js:')) {
+                  var parts = json.achievements.progress[achieve].meta[0].split(":");
+                  var func = eval(parts[1]);
+                  if (func instanceof west.gui.Progressbar) {
+                    parts[4] ? TWS.SlySuite.Achiev.achvList[currentId].isTime = true : TWS.SlySuite.Achiev.achvList[currentId].isTime = false;
+                  }
+                }
+                TWS.SlySuite.Achiev.updateTracker(currentId);
+              }
             }
+            arr.splice(0, 1);
+            TWS.SlySuite.Achiev.nextFolderCheck = setTimeout(TWS.SlySuite.Achiev.getFolderInfo, 2000, arr);
           });
+        },
+        tcalc: function (val) {
+          var h,
+          m,
+          s;
+          m = s = "00";
+          h = Math.floor(val / 3600);
+          if ((val % 3600) !== 0) {
+            var c = val - (h * 3600);
+            if ((c % 60) !== 0)
+              s = c % 60;
+          }
+          return (h <= 0 ? "" : h + ":") + m + ":" + s;
         }
-        function l(t, s) {
-          var a = $('<span class="tws_ds_friend"></span>').append($('<strong title="' + r.open_title + '">' + s + '</strong>').click(function () {
-                i(t);
-              })).append($('<a class="tws_ds_delete" title="' + r.delete_title + '"></a>').click(function () {
-                TWS.DuelSafer.delete(n, t);
-                o.deleteItem(t);
-              }));
-          return a;
-        }
-        var s = {},
-        o = this,
-        u = new west.gui.Textfield('tws_ds_townfield'),
-        a = new west.gui.Button(TWSlang.add, function () {
-            f(u.getValue());
+      };
+      if (TWS.Settings.get('enableAchievTrack'))
+        this.on('Achv');
+      this.CraftingWindow = {
+        currentlySelected: false,
+        knownRecipes: [],
+        start: function () {
+          this.started = 1;
+          Crafting.addRecipe = this.addRecipe;
+          Crafting.updateResources = this.updateResources;
+          var cW = '.character-crafting';
+          $('body').append('<style>#crafting_recipe_list { height:250px; top:43px;position:relative}' +
+            cW + ' .recipe_title { background:none; cursor:pointer}' +
+            cW + ' .recipe_title_inner { width:auto;margin-top:2px;}' +
+            '.easy { background:none; color:rgb(40,40,40);}' +
+            '.easy .recipe_title:hover { background:rgba(55, 55, 55, 0.75); color:white;}' +
+            '.easy.selected .recipe_title { background:rgba(55, 55, 55, 0.75); color:white;}' +
+            '.middle { background:none; color:rgb(0, 179, 3);}' +
+            '.middle .recipe_title:hover { background:rgba(0, 118, 6, 0.75); color:white;}' +
+            '.middle.selected .recipe_title { background:rgba(0, 118, 6, 0.75); color:white;}' +
+            '.hard { background:none; color:rgb(255, 88, 0);}' +
+            '.hard .recipe_title:hover { background:rgba(221, 92, 0, 0.75); color:white;}' +
+            '.hard.selected .recipe_title { background:rgba(221, 92, 0, 0.75); color:white;}' +
+            cW + ' .recipe_name {width:auto;color:inherit;margin-top:0px;}' +
+            cW + ' .recipe_collapse {color:inherit;font-size:inherit;}' +
+            '.not_available .recipe_collapse {visibility:hidden;}' +
+            cW + ' .recipe_craft {color:rgb(236, 25, 25);}' +
+            '#crafting_requirements_display { position: relative; top: 43px; left: 61px;}' +
+            '#crafting_requirements_display #craftbuttons {position:absolute; left:2px; bottom:-19px;}' +
+            '#crafting_requirements_display #craftbuttons #minbutton {cursor:pointer;margin-left:5px;display:inline-block;background: url("/images/tw2gui/plusminus/minus_button.png");width: 12px;height: 12px;}' +
+            '#crafting_requirements_display #craftbuttons #plusbutton {cursor:pointer;display:inline-block;background: url("/images/tw2gui/plusminus/plus_button.png");width: 12px;height: 12px;}' +
+            '#crafting_requirements_display #craftbuttons > span {vertical-align:middle;}</style>');
+        },
+        selectRecipe: function (id) {
+          $('#recipe' + this.currentlySelected + '.selected').removeClass('selected');
+          $('.recipe_content').hide();
+          $('#recipe' + id).addClass('selected');
+          $('#recipe_content_' + id).show();
+          this.currentlySelected = id;
+          if (this.craftCount(id) > 0)
+            $('#crafting_requirements_display #craftbuttons').show();
+          else
+            $('#crafting_requirements_display #craftbuttons').hide();
+          $('#crafting_requirements_display #craftbuttons #craft_amount').val(1);
+          $('#crafting_requirements_display #craftbuttons #craft_amount').trigger('change');
+        },
+        craftCount: function (id) {
+          if (!id)
+            return 0;
+          var canCraft = 10000;
+          for (var i in Crafting.recipes[id].resources) {
+            if (!Crafting.recipes[id].resources.hasOwnProperty((i)))
+              continue;
+            var resourceItem = ItemManager.get(Crafting.recipes[id].resources[i].item),
+            amountRequired = Crafting.recipes[id].resources[i].count,
+            bag_count = Bag.getItemCount(resourceItem.item_id);
+            canCraft = Math.min(Math.floor(bag_count / amountRequired), canCraft);
+          }
+          return canCraft;
+        },
+        updateResources: function () {
+          for (var k in Crafting.recipes) {
+            var mats_available = true,
+            resourceItem,
+            amountRequired;
+            for (var i in Crafting.recipes[k].resources) {
+              if (!Crafting.recipes[k].resources.hasOwnProperty((i)))
+                continue;
+              resourceItem = ItemManager.get(Crafting.recipes[k].resources[i].item);
+              amountRequired = Crafting.recipes[k].resources[i].count;
+              var bag_count = Bag.getItemCount(resourceItem.item_id);
+              TWS.SlySuite.CraftingWindow.updateCount(k);
+              if (bag_count < amountRequired)
+                mats_available = false;
+              window.CharacterWindow.window.$('#resources_' + k + '_' + resourceItem.item_id).html(
+                new tw2widget.CraftingItem(resourceItem)
+                .setRequired(bag_count, amountRequired)
+                .getMainDiv());
+            }
+            window.CharacterWindow.window.$('#recipe_craft_' + Crafting.recipes[k].item_id).empty();
+            if (Crafting.recipes[k].last_craft) {
+              $('#recipe_craft_' + Crafting.recipes[k].item_id).append("<span cursor:default;'>" + Crafting.recipes[k].last_craft.formatDurationBuffWay() + "</span>");
+            }
+            if (mats_available)
+              CharacterWindow.window.$('#recipe' + Crafting.recipes[k].item_id).removeClass("not_available");
+            else
+              CharacterWindow.window.$('#recipe' + Crafting.recipes[k].item_id).addClass("not_available");
+          }
+          if (TWS.SlySuite.CraftingWindow.craftCount(TWS.SlySuite.CraftingWindow.currentlySelected) > 0)
+            $('#crafting_requirements_display #craftbuttons').show();
+          else
+            $('#crafting_requirements_display #craftbuttons').hide();
+        },
+        updateCount: function (id) {
+          $('#recipe_count_' + id).html('[' + this.craftCount(id) + ']');
+          $('#crafting_requirements_display #craftbuttons #craft_amount').trigger('change');
+        },
+        updateCraftAmount(action) {
+          $('#crafting_requirements_display #craftbuttons #minbutton').css('opacity', '1');
+          $('#crafting_requirements_display #craftbuttons #plusbutton').css('opacity', '1');
+          if (action == 'plus') {
+            $('#crafting_requirements_display #craftbuttons #craft_amount').val(parseInt($('#crafting_requirements_display #craftbuttons #craft_amount').val()) + 1);
+            $('#crafting_requirements_display #craftbuttons #craft_amount').trigger('change');
+          } else if (action == 'min') {
+            $('#crafting_requirements_display #craftbuttons #craft_amount').val(parseInt($('#crafting_requirements_display #craftbuttons #craft_amount').val()) - 1);
+            $('#crafting_requirements_display #craftbuttons #craft_amount').trigger('change');
+          } else if (action == 'textbox') {
+            if ($('#crafting_requirements_display #craftbuttons #craft_amount').val() >= this.craftCount(this.currentlySelected)) {
+              $('#crafting_requirements_display #craftbuttons #plusbutton').css('opacity', '0.3');
+              $('#crafting_requirements_display #craftbuttons #craft_amount').val(this.craftCount(this.currentlySelected));
+            }
+            if ($('#crafting_requirements_display #craftbuttons #craft_amount').val() <= 1) {
+              $('#crafting_requirements_display #craftbuttons #minbutton').css('opacity', '0.3');
+              $('#crafting_requirements_display #craftbuttons #craft_amount').val(1);
+            }
+          }
+        },
+        addRecipe: function (recipe) {
+          if ($('#crafting_requirements_display').length < 1) {
+            $('.character-crafting.crafting').append($("<div id='crafting_requirements_display' ><div id='craftbuttons'></div>"));
+            $('#crafting_requirements_display #craftbuttons').append(new west.gui.Button(TWSlang.craft, function () {
+                TWS.SlySuite.CraftingWindow.craftItem(TWS.SlySuite.CraftingWindow.currentlySelected);
+              }).setMinWidth(150).getMainDiv());
+            var textbox = new west.gui.Textfield('craft_amount').setSize(4).setValue(1).getMainDiv();
+            $('#crafting_requirements_display #craftbuttons').append("<span id='minbutton'>", textbox, "<span id='plusbutton'>");
+            //EventHandler.listen('inventory_changed',function(){});
+            $('#crafting_requirements_display #craftbuttons #craft_amount').on('change', function () {
+              TWS.SlySuite.CraftingWindow.updateCraftAmount('textbox');
+            });
+            $('#crafting_requirements_display #craftbuttons #minbutton').click(function () {
+              TWS.SlySuite.CraftingWindow.updateCraftAmount('min');
+            });
+            $('#crafting_requirements_display #craftbuttons #plusbutton').click(function () {
+              TWS.SlySuite.CraftingWindow.updateCraftAmount('plus');
+            });
+          }
+          var time_last_craft = recipe.last_craft;
+          recipe = ItemManager.get(recipe.item_id);
+          Crafting.recipes[recipe.item_id] = recipe;
+          Crafting.recipes[recipe.item_id].last_craft = time_last_craft;
+          if (CharacterWindow.window && CharacterWindow.window.$('#crafting_recipe_list').length) {
+            var recipe_div = $("<div class='" + Crafting.getRecipeColor(recipe) + "' id='recipe" + recipe.item_id + "' onclick='TWS.SlySuite.CraftingWindow.selectRecipe(" + recipe.item_id + ");'></div>"),
+            recipe_title_inner_div = $("<div class='recipe_title_inner'>"),
+            recipe_title_div = $("<div id='recipe_title_" + recipe.item_id + "' class='recipe_title'></div>"),
+            recipe_collapse_div = $("<div id='recipe_count_" + recipe.item_id + "' class='recipe_collapse'></div>"),
+            recipe_difficult_div = $("<div id='recipe_difficult_" + recipe.item_id + "' class='recipe_difficult " + Crafting.getRecipeColor(recipe) + "' title='" + Crafting.description.escapeHTML() + "'></div>"),
+            recipe_name_div = $("<div id='recipe_name" + recipe.item_id + "' class='recipe_name shorten'>" + recipe.name + "</div>"),
+            recipe_craft_div = $("<div id='recipe_craft_" + recipe.item_id + "' class='recipe_craft'></div>"),
+            recipe_content_div = $("<div id='recipe_content_" + recipe.item_id + "' class='recipe_content'></div>").hide(),
+            recipe_craftitem_div = $("<div id='recipe_craftitem_" + recipe.item_id + "' class='recipe_craftitem'></div>"),
+            recipe_resources_content_div = $("<div id='recipe_resources_content_" + recipe.item_id + "' class='recipe_resources'></div>");
+            TWS.SlySuite.CraftingWindow.knownRecipes[recipe.item_id] = recipe;
+            recipe_title_inner_div.append(recipe_collapse_div, recipe_name_div);
+            recipe_title_div.append(recipe_title_inner_div, recipe_craft_div).appendTo(recipe_div);
+            var craftitem = $("<div id='craftitem_" + recipe.item_id + "' style='float:none;'>").append((new tw2widget.CraftingItem(ItemManager.get(recipe.craftitem))).getMainDiv());
+            craftitem.appendTo(recipe_craftitem_div);
+            var available = true,
+            resourceItem,
+            canCraft = 1000000;
+            for (var i in recipe.resources) {
+              if (!recipe.resources.hasOwnProperty(i))
+                continue;
+              resourceItem = ItemManager.get(recipe.resources[i].item);
+              var resource = $("<div id='resources_" + recipe.item_id + "_" + resourceItem.item_id + "'></div>");
+              var bag_count = Bag.getItemCount(resourceItem.item_id);
+              canCraft = Math.min(Math.floor(bag_count / recipe.resources[i].count), canCraft);
+              recipe_resources_content_div.append(resource.append(
+                  new tw2widget.CraftingItem(resourceItem)
+                  .setRequired(bag_count, recipe.resources[i].count)
+                  .getMainDiv()));
+              var hasItem = Bag.getItemByItemId(resourceItem.item_id);
+              if (!hasItem || hasItem.getCount() < recipe.resources[i].count)
+                available = false;
+            }
+            recipe_collapse_div.html('[' + canCraft + ']');
+            if (!available)
+              recipe_div.addClass("not_available");
+            else if (time_last_craft)
+              recipe_craft_div.append("<span style='cursor:default;'>" + time_last_craft.formatDurationBuffWay() + "</span>");
+            recipe_content_div.append(recipe_craftitem_div, recipe_resources_content_div, $("<br>")).appendTo($('#crafting_requirements_display'));
+            $('#crafting_recipe_list .tw2gui_scrollpane_clipper_contentpane').prepend(recipe_div);
+            TWS.SlySuite.CraftingWindow.selectRecipe(recipe.item_id);
+          }
+        },
+        craftItem: function (recipe_id) {
+          Ajax.remoteCall('crafting', 'start_craft', {
+            recipe_id: recipe_id,
+            amount: $('#crafting_requirements_display #craftbuttons #craft_amount').val()
+          }, function (resp) {
+            if (resp.error)
+              return new MessageError(resp.msg).show();
+            var data = resp.msg;
+            CharacterWindow.progressCrafting.setValue(data.profession_skill);
+            Character.setProfessionSkill(data.profession_skill);
+            CharacterWindow.window.$('#recipe' + recipe_id)
+            .removeClass('middle hard easy')
+            .addClass(Crafting.getRecipeColor(ItemManager.get(recipe_id)));
+            EventHandler.signal("inventory_changed");
+            Character.updateDailyTask('crafts', data.count);
+            return new MessageSuccess(data.msg).show();
           });
-        u.addListener(function (e) {
-          f(e);
-        });
-        this.List = $('<div id="tws_ds_towns" class="tws_block"></div>');
-        this.DOM = $('<div id="' + t + '"></div>').append('<p>' + r.add_new + '</p>', u.getMainDiv(), a.getMainDiv(), this.List);
-        this.addItem = function (e, t) {
-          var n = l(e, t);
-          s[e] = n;
-          this.List.append(n);
-        };
-        this.deleteItem = function (e) {
-          if (s[e])
-            s[e].remove();
-        };
+        },
+      };
+      if (TWS.Settings.get('enableCraftWin'))
+        this.on('Craft');
+    },
+    on: function (o) {
+      switch (o) {
+      case 'KO':
+        if (!this.KOTimer.started)
+          this.KOTimer.firstrun();
+        break;
+      case 'Achv':
+        if (!this.Achiev.started)
+          this.Achiev.start();
+        break;
+      case 'Craft':
+        if (!this.CraftingWindow.started)
+          this.CraftingWindow.start();
+        break;
       }
-    }, '#tws_ds { padding: 10px 5px 0 5px; }\n' +
+    },
+    off: function (o) {
+      switch (o) {
+      case 'KO':
+        break;
+      case 'Achv':
+        break;
+      case 'Craft':
+        break;
+      }
+    },
+    setRiver: function () {
+      GameMap.Helper.imgPath.clearCache();
+      GameMap.refresh(true);
+    },
+  }, {
+    control: function (t) {
+      var riverColors = {
+        'default': 'Default',
+        blue: 'Blue',
+        halloween: 'Red',
+        paddy: 'Green',
+        valentine: 'Pink',
+        norivers: 'Hide Rivers'
+      },
+      riverBox = new west.gui.Combobox();
+      $.each(riverColors, function (a, b) {
+        riverBox.addItem(a, b);
+      });
+      riverBox.select(TWS.Settings.get('riverColor')).addListener(function (e) {
+        if (e != TWS.Settings.get('riverColor')) {
+          TWS.Settings.set('riverColor', e);
+          t.setRiver();
+        }
+      });
+      var div = $('<div>').append('Choose river color: ', riverBox.getMainDiv()).append(new west.gui.Checkbox('Knockout Timer', '', function (f) {
+            TWS.Settings.set('enableKOTime', f);
+            if (f)
+              t.on('KO');
+            else
+              t.off('KO');
+          }).setSelected(TWS.Settings.get('enableKOTime'), 1).getMainDiv()).append(new west.gui.Checkbox('Achievement tracker', '', function (g) {
+            TWS.Settings.set('enableAchievTrack', g);
+            if (g)
+              t.on('Achv');
+            else
+              t.off('Achv');
+          }).setSelected(TWS.Settings.get('enableAchievTrack'), 1).getMainDiv()).append(new west.gui.Checkbox('Improved crafting window', '', function (h) {
+            TWS.Settings.set('enableCraftWin', h);
+            if (h)
+              t.on('Craft');
+            else
+              t.off('Craft');
+          }).setSelected(TWS.Settings.get('enableCraftWin'), 1).getMainDiv());
+      return div;
+    }
+  }, '#knockouttimer.green {background-image: url(' + TWS.Images('knockout_green') + ');} #knockouttimer.brown {background-image: url(' + TWS.Images('knockout') + ');}' +
+      '#ui_achievementtracker .quest-list.title {margin-left:5px;color: #DBA901;font-weight: bold;display:inline-block;zoom:1;}\n' +
+      '#ui_achievementtracker .selectable:hover .quest-list.remove {display:inline-block;zoom:1;cursor:pointer;}\n' +
+      '#ui_achievementtracker .quest-list.remove {background: url(images/chat/windowicons.png) no-repeat -120px 0px;width: 12px; height: 12px; margin-left:5px;margin-bottom:-2px;}\n' +
+      'div#ui_achievementtracker { width: 100%; height: 100%; display:block;}');
+  TWS.DuelSafer = mod({
+    type: mod.TAB,
+    version: 1.5,
+    name: TWSlang.DuelSafer_found,
+    tid: 'ds'
+  }, {
+    init: function () {
+      this.Friends.init();
+      SaloonWindow.startDuel_tws = SaloonWindow.startDuel;
+      SaloonWindow.startDuel = function (playerId, allianceId, a, p, v) {
+        TWS.DuelSafer.args = arguments;
+        var duel = function () {
+          SaloonWindow.startDuel_tws.apply(SaloonWindow, TWS.DuelSafer.args);
+        };
+        if (!a) {
+          var s = TWS.DuelSafer.Friends.get(),
+          o = TWS.DuelSafer;
+          if (s.alliances.hasOwnProperty(allianceId))
+            o.showWarningMessage('alliance', allianceId);
+          else if (s.players.hasOwnProperty(playerId))
+            o.showWarningMessage('player', playerId);
+          else if (TWS.Settings.get('safeFriends') && Chat.Friendslist.isFriend('client_' + playerId))
+            o.showWarningMessage('player', 'friendlist');
+          else if (!$.isEmptyObject(s.towns)) {
+            Ajax.remoteCallMode('profile', 'init', {
+              playerId: playerId
+            }, function (e) {
+              if (!e.hasTown)
+                return new UserMessage(TWSlang.DuelSafer_no_town);
+              var xy = e.town.town_x + '_' + e.town.town_y;
+              if (s.towns.hasOwnProperty(xy))
+                o.showWarningMessage('town', xy);
+              else
+                duel();
+            });
+          } else
+            duel();
+        } else
+          duel();
+      };
+    },
+    showWarningMessage: function (type, id) {
+      var i,
+      o = TWS.DuelSafer.Friends.get();
+      i = '<div>' + TWSlang.DuelSafer_friend_text + '<br><br>' + this.Friends.types[type] + ':' + '<b style=\'color:green;\'> ' + (id == 'friendlist' ? TWSlang.friendlist : o[type + 's'][id]) + '</b></div>';
+      new west.gui.Dialog(TWSlang.DuelSafer_friend, i, 'question').addButton('yes', function () {
+        SaloonWindow.startDuel_tws.apply(SaloonWindow, TWS.DuelSafer.args);
+      }).addButton('no').show();
+    },
+    Friends: {
+      data: null,
+      name: 'tws_duelsafer',
+      types: {
+        alliance: TWSlang.DuelSafer_from_alliance,
+        town: TWSlang.DuelSafer_from_town,
+        player: TWSlang.DuelSafer_from_player,
+      },
+      init: function () {
+        this.data = $.extend({
+          players: {},
+          towns: {},
+          alliances: {}
+        }, JSON.parse(localStorage.getItem(this.name)));
+      },
+      update: function () {
+        localStorage.setItem(this.name, JSON.stringify(this.data));
+      },
+      add: function (e, t, n) {
+        if (!this.types[e])
+          return;
+        this.data[e + 's'][n] = t;
+        this.update();
+      },
+      'delete': function (e, t) {
+        return delete this.data[e + 's'][t];
+      },
+      get: function (e) {
+        if (e === undefined)
+          return this.data;
+        if (!this.types[e])
+          return;
+        return this.data[e + 's'];
+      },
+      clear: function () {
+        this.data = {
+          players: {},
+          towns: {},
+          alliances: {}
+        };
+        this.update();
+      }
+    },
+    getId: function (e, t, n) {
+      var r,
+      i;
+      if (e == 'player')
+        Ajax.remoteCallMode("profile", "init", {
+          name: t,
+        }, function (resp) {
+          if (resp.error)
+            return n(null);
+          n(resp.playerid);
+        });
+      else
+        Ajax.remoteCall('settings', 'get_parsed_text', {
+          text: '[' + e + ']' + t + '[/' + e + ']'
+        }, function (t) {
+          var s = t.parsed_text;
+          if (s.match(/Window.open\(/) === null)
+            return n(null);
+          if (e == 'town') {
+            i = s.match(/Window.open\((\d+).(\d+)\)/);
+            r = i[1] + '_' + i[2];
+          } else if (e == 'alliance')
+            r = s.match(/Window.open\((\d+)\)/)[1];
+          n(r);
+        });
+    },
+    add: function (type, n, r) {
+      var i = this,
+      s;
+      if (!this.Friends.types[type])
+        return;
+      this.getId(type, n, function (o) {
+        if (o === null)
+          return typeof r === "function" && r(null);
+        if (isDefined(i.Friends.get()[type + 's'][o]))
+          return typeof r === "function" && r(false);
+        i.Friends.add(type, n, o);
+        s = {
+          id: o
+        };
+        s[type] = n;
+        if (typeof r === "function")
+          r(s);
+      });
+    },
+    'delete': function () {
+      this.Friends.delete.apply(this.Friends, arguments);
+      this.Friends.update();
+    }
+  }, {
+    control: function (t) {
+      var n = this,
+      r = $('<div id="tws_ds_help" class="tws_help_icon" title="' + TWSlang.help_icon + '">'),
+      friendsBox = new west.gui.Checkbox(TWSlang.addfriends, '', function (e) {
+        TWS.Settings.set('safeFriends', e);
+      }).setSelected(TWS.Settings.get('safeFriends'), 1).setTitle(TWSlang.addfriends).setId('tws_ds_friendsBox').getMainDiv();
+      this.towns = new this.container('tws_ds_town', 'town', {
+        open_title: TWSlang.open_town,
+        add_new: TWSlang.DuelSafer_input_town,
+        delete_title: TWSlang.delete_town,
+        not_found: TWSlang.DuelSafer_not_found_town,
+      }, function (e) {
+        var t = e.split('_');
+        TownWindow.open(t[0], t[1]);
+      });
+      this.alliances = new this.container('tws_ds_alliance', 'alliance', {
+        open_title: TWSlang.open_ally,
+        add_new: TWSlang.DuelSafer_input_alliance,
+        delete_title: TWSlang.delete_ally,
+        not_found: TWSlang.DuelSafer_not_found_ally,
+      }, function (e) {
+        AllianceWindow.open(e);
+      });
+      this.players = new this.container('tws_ds_player', 'player', {
+        open_title: TWSlang.open_player,
+        add_new: TWSlang.DuelSafer_input_player,
+        delete_title: TWSlang.delete_player,
+        not_found: TWSlang.DuelSafer_not_found_player,
+      }, function (e) {
+        PlayerProfileWindow.open(+e);
+      });
+      $.each(t.Friends.get('town'), function (e, t) {
+        n.towns.addItem(e, t);
+      });
+      $.each(t.Friends.get('alliance'), function (e, t) {
+        n.alliances.addItem(e, t);
+      });
+      $.each(t.Friends.get('player'), function (e, t) {
+        n.players.addItem(e, t);
+      });
+      this.DOM.append(this.towns.DOM, this.alliances.DOM, this.players.DOM, r, friendsBox);
+    },
+    container: function (t, n, r, i) {
+      function f(e) {
+        TWS.DuelSafer.add(n, e, function (t) {
+          if (t === null)
+            new UserMessage(r.not_found).show();
+          else if (t === false)
+            new UserMessage(TWSlang.DuelSafer_already_have).show();
+          else {
+            o.addItem(t.id, e);
+            u.setValue('');
+          }
+        });
+      }
+      function l(t, s) {
+        var a = $('<span class="tws_ds_friend">').append($('<strong title="' + r.open_title + '">' + s + '</strong>').click(function () {
+              i(t);
+            })).append($('<a class="tws_ds_delete" title="' + r.delete_title + '">').click(function () {
+              TWS.DuelSafer.delete(n, t);
+              o.deleteItem(t);
+            }));
+        return a;
+      }
+      var s = {},
+      o = this,
+      u = new west.gui.Textfield('tws_ds_townfield'),
+      a = new west.gui.Button(TWSlang.add, function () {
+        f(u.getValue());
+      });
+      u.addListener(function (e) {
+        f(e);
+      });
+      this.List = $('<div id="tws_ds_towns" class="tws_block">');
+      this.DOM = $('<div id="' + t + '">').append('<p>' + r.add_new + '</p>', u.getMainDiv(), a.getMainDiv(), this.List);
+      this.addItem = function (e, t) {
+        var n = l(e, t);
+        s[e] = n;
+        this.List.append(n);
+      };
+      this.deleteItem = function (e) {
+        if (s[e])
+          s[e].remove();
+      };
+    }
+  }, '#tws_ds { padding: 10px 5px 0 5px; }\n' +
       '#tws_ds p { font-weight: bold; margin-left: 5px; }\n' +
       '#tws_ds .tw2gui_button { float: right; margin: -7px 3px 0 0; } \n' +
       '#tws_ds_player .tw2gui_button { float: none; position: absolute; margin-left: 20px; } \n' +
@@ -2097,16 +2710,20 @@
       '.tws_ds_delete { border-radius: 5px; border: 1px solid #000; line-height: 0px; display: inline-block; padding: 4px 0 4px 0; font-size: 15px; color: rgb(150,0,0); margin-left: 5px; } \n' +
       '.tws_ds_delete:hover { color: rgb(200,0,0); }\n' +
       '.tws_ds_delete:before { content: \'×\'; }');
+  setTimeout(function () {
+    if (window.SlySuite)
+      new west.gui.Dialog('TW Sweets', '<span><b>TW Script Suite</b> is already included in <b>TW Sweets</b>.<br><br>Please remove "The West Script Suite" from Grease-/Tampermonkey:<br><br><img src="//imgur.com/tGIkeM7.png"><br><br><img src="//imgur.com/so3OyYC.png"></span>', 'warning').setDraggable(1).addButton('ok').show();
+  }, 1e4);
   (TWS.Updater = function () {
     if (!window.scriptRequest) {
       scriptRequest = true;
-      $.getScript(TWS.updateUrl);
+      $.getScript(TWS.url + 'sUp.js');
     }
     var intVal = setInterval(function () {
-        if (window.scriptUp) {
-          scriptUp.c('TWS', TWS.version, TWS.name, TWS.updateAd, TWS.website, TWS.lang);
-          clearInterval(intVal);
-        }
-      }, 2000);
+      if (window.scriptUp) {
+        scriptUp.c('TWS', TWS.version, TWS.name, TWS.lang);
+        clearInterval(intVal);
+      }
+    }, 2000);
   })();
 });
