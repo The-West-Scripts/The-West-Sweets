@@ -5,7 +5,7 @@
 // @description Cool features!
 // @include https://*.the-west.*/game.php*
 // @exclude https://classic.the-west.net*
-// @version 1.3.0
+// @version 1.3.1
 // @grant none
 // ==/UserScript==
 // translation:Shelimov(Russian),Tom Robert(German),pepe100(Spanish),jccwest(Portuguese),Lutte Finale(French),anto81(Italian),0ndra(Polish),JackJeruk(Hungarian),Jamza(Czech&Slovak),Timemod Herkumo(Greek)
@@ -17,7 +17,7 @@
   document.body.removeChild(script);
 })(function () {
   TWS = {
-    version: '1.3.0',
+    version: '1.3.1',
     name: 'TW Sweets',
     author: 'Tom Robert (Shelimov/Slygoxx)',
     minGame: '2.06',
@@ -1265,7 +1265,7 @@
           this.on();
       },
       selectableForum: function () {
-        $('iframe[src=\'forum.php\']').load(function () {
+        $('iframe[src=\'forum.php\']').on('load', function () {
           var content = $(this).contents();
           content.find('head').append(TWS.Patches.SText.style);
         });
@@ -1318,8 +1318,8 @@
             s = n.find('.cell_1 a').attr('onclick').match(/\d+/);
             r.append('<img src="' + TWS.Images('lastpost') + '" class="twdb_lastpost" style="cursor:pointer;position:absolute;margin-left:5px;" title="' + TWSlang.to_last_page + '" onclick="Forum.openThread(' + s + ', ' + i + ')"></img>');
           });
-        } else if (d.data++ < 3) //try 3 more times
-          setTimeout(TWS.Patches.FLPage.handler.bind(this), 500, {
+        } else if (d.data++ < 10) //try 10 more times
+          setTimeout(TWS.Patches.FLPage.handler.bind(this), 100, {
             data: d.data
           });
       },
@@ -1510,7 +1510,7 @@
     }, '#tws_tlContainer { width: 50px; top: 144px; position: relative; }\n' + '#tws_tlContainer p { font-size: 9px; position: relative; cursor: help; left: 4px; color: #FFF; }\n' + '#tws_tlHp { top: 2px; }\n' + '#tws_tlEnergy { top: 5px; }');
   TWS.Wir = mod({
     type: mod.MOD,
-    version: 1.4,
+    version: 1.5,
     name: TWSlang.wir
   }, {
     methodEdited: null,
@@ -1524,8 +1524,25 @@
       if (!this.methodEdited)
         this.editInventoryLoad();
       this.addCSS();
-      Inventory.size = 99999;
-      Inventory.sizeSearch = 99999;
+      Inventory.size_tws = 99999;
+      Inventory.sizeSearch_tws = 99999;
+      Object.defineProperties(Inventory, {
+        size:  {
+          get() {
+            return Inventory.size_tws;
+          }
+        },
+        sizeSearch:  {
+          get() {
+            return Inventory.sizeSearch_tws;
+          }
+        },
+        latestSize:  {
+          get() {
+            return Inventory.latestSize_tws;
+          }
+        },
+      });
     },
     bigInv: function () {
       if (Inventory.width > 304)
@@ -1540,12 +1557,12 @@
         switch (t) {
         case 6:
           t = [
-            36, 40, 2, 2, 15, 264, 'auto', -5, 42,
+            40, 42, 1, 1, 15, 264, 'auto', -5, 42,
           ];
           break;
         case 5:
           t = [
-            42, 48, 3, 3, 18, 264, 'auto', -5, 30,
+            46, 49, 2, 2, 18, 264, 'auto', -5, 30,
           ];
           break;
         case 4:
@@ -1560,12 +1577,12 @@
           break;
         case 10:
           t = [
-            45, 51, 3, 3, 18, 694, 'auto', 0, 91,
+            46, 49, 2, 2, 18, 694, 'auto', 0, 91,
           ];
           break;
         case 8:
           t = [
-            53, 60, 3, 4, 23, 692, 'auto', 0, 66,
+            50, 58, 2, 3, 23, 692, 'auto', 0, 66,
           ];
           break;
         case 2:
@@ -1585,7 +1602,7 @@
           '#bag > .pinned > .item { background-size: auto !important; }\n' +
           '#bag { width: ' + t[5] + 'px !important; overflow-y: ' + t[6] + '; margin-left: ' + t[7] + 'px;}';
         $('head').append($('<style type="text/css">' + n + '</style>'));
-        Inventory.latestSize = t[8];
+        Inventory.latestSize_tws = t[8];
       }
     },
     editInventoryLoad: function () {
@@ -1621,8 +1638,8 @@
       this.methodEdited = null;
       Inventory.firstLoad = Inventory.firstLoad_tws;
       Inventory.setCategoryActive = Inventory.setCategoryActive_tws;
-      Inventory.size = this.bigInv() ? 66 : 20;
-      Inventory.sizeSearch = this.bigInv() ? 55 : 16;
+      Inventory.size_tws = this.bigInv() ? 66 : 20;
+      Inventory.sizeSearch_tws = this.bigInv() ? 55 : 16;
       this.addCSS(1);
     }
   }, {
@@ -2465,7 +2482,8 @@
       '#ui_achievementtracker .quest-list.title {margin-left:5px;color: #DBA901;font-weight: bold;display:inline-block;zoom:1;}\n' +
       '#ui_achievementtracker .selectable:hover .quest-list.remove {display:inline-block;zoom:1;cursor:pointer;}\n' +
       '#ui_achievementtracker .quest-list.remove {background: url(images/chat/windowicons.png) no-repeat -120px 0px;width: 12px; height: 12px; margin-left:5px;margin-bottom:-2px;}\n' +
-      'div#ui_achievementtracker { width: 100%; height: 100%; display:block;}');
+      'div#ui_achievementtracker { width: 100%; height: 100%; display:block;}\n' +
+      '.tws_achievTrack.questtracker {box-shadow:none!important;}\n');
   TWS.DuelSafer = mod({
     type: mod.TAB,
     version: 1.5,
