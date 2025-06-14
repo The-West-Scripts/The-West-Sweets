@@ -5,7 +5,7 @@
 // @description Cool features!
 // @include https://*.the-west.*/game.php*
 // @exclude https://classic.the-west.net*
-// @version 1.3.2
+// @version 1.3.3
 // @grant none
 // ==/UserScript==
 // translation:Shelimov(Russian),Tom Robert(German),pepe100(Spanish),jccwest(Portuguese),Lutte Finale(French),anto81(Italian),0ndra(Polish),JackJeruk(Hungarian),Jamza(Czech&Slovak),Timemod Herkumo(Greek)
@@ -17,7 +17,7 @@
   document.body.removeChild(script);
 })(function () {
   TWS = {
-    version: '1.3.2',
+    version: '1.3.3',
     name: 'TW Sweets',
     author: 'Tom Robert (Shelimov/Slygoxx)',
     minGame: '2.06',
@@ -1557,22 +1557,22 @@
         switch (t) {
         case 6:
           t = [
-            38, 40, 1, 1, 15, 264, 'auto', -5, 42,
+            40, 42, 1, 1, 15, 268, 'auto', -6, 42,
           ];
           break;
         case 5:
           t = [
-            45, 48, 2, 2, 18, 264, 'auto', -5, 30,
+            46, 49, 2, 2, 18, 268, 'auto', -6, 30,
           ];
           break;
         case 4:
           t = [
-            53, 60, 3, 4, 23, 264, 'auto', -5, 20,
+            53, 60, 3, 4, 23, 268, 'auto', -6, 20,
           ];
           break;
         case 12:
           t = [
-            37, 41, 2, 2, 15, 692, 'auto', 0, 128,
+            37, 41, 2, 2, 15, 694, 'auto', 0, 128,
           ];
           break;
         case 10:
@@ -1582,17 +1582,17 @@
           break;
         case 8:
           t = [
-            50, 58, 2, 3, 23, 692, 'auto', 0, 66,
+            50, 58, 2, 3, 23, 694, 'auto', 0, 66,
           ];
           break;
         case 2:
           t = [
-            53, 60, 3, 4, 23, 692, 'hidden', 0, 66,
+            53, 60, 3, 4, 23, 694, 'hidden', 0, 66,
           ];
           break;
         default:
           t = [
-            53, 60, 3, 4, 23, 264, 'hidden', 5, 20,
+            53, 60, 3, 4, 23, 268, 'hidden', 5, 20,
           ];
           break;
         }
@@ -1600,7 +1600,7 @@
           '#bag .item.item_inventory { width: ' + t[1] + 'px !important; height: ' + t[1] + 'px !important; background-size: contain !important; }\n' +
           '#bag .count { min-width: ' + t[4] + 'px !important; }\n' +
           '#bag > .pinned > .item { background-size: auto !important; }\n' +
-          '#bag { width: ' + t[5] + 'px !important; overflow-y: ' + t[6] + '; margin-left: ' + t[7] + 'px;}';
+          '#bag { width: ' + t[5] + 'px !important; overflow-y: ' + t[6] + '; margin-left: ' + t[7] + 'px; scrollbar-width: thin}';
         $('head').append($('<style type="text/css">' + n + '</style>'));
         Inventory.latestSize_tws = t[8];
       }
