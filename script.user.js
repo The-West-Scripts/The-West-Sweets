@@ -5,7 +5,7 @@
 // @description Cool features!
 // @include https://*.the-west.*/game.php*
 // @exclude https://classic.the-west.net*
-// @version 1.3.1
+// @version 1.3.2
 // @grant none
 // ==/UserScript==
 // translation:Shelimov(Russian),Tom Robert(German),pepe100(Spanish),jccwest(Portuguese),Lutte Finale(French),anto81(Italian),0ndra(Polish),JackJeruk(Hungarian),Jamza(Czech&Slovak),Timemod Herkumo(Greek)
@@ -17,7 +17,7 @@
   document.body.removeChild(script);
 })(function () {
   TWS = {
-    version: '1.3.1',
+    version: '1.3.2',
     name: 'TW Sweets',
     author: 'Tom Robert (Shelimov/Slygoxx)',
     minGame: '2.06',
@@ -1527,17 +1527,17 @@
       Inventory.size_tws = 99999;
       Inventory.sizeSearch_tws = 99999;
       Object.defineProperties(Inventory, {
-        size:  {
+        size: {
           get() {
             return Inventory.size_tws;
           }
         },
-        sizeSearch:  {
+        sizeSearch: {
           get() {
             return Inventory.sizeSearch_tws;
           }
         },
-        latestSize:  {
+        latestSize: {
           get() {
             return Inventory.latestSize_tws;
           }
@@ -1557,12 +1557,12 @@
         switch (t) {
         case 6:
           t = [
-            40, 42, 1, 1, 15, 264, 'auto', -5, 42,
+            38, 40, 1, 1, 15, 264, 'auto', -5, 42,
           ];
           break;
         case 5:
           t = [
-            46, 49, 2, 2, 18, 264, 'auto', -5, 30,
+            45, 48, 2, 2, 18, 264, 'auto', -5, 30,
           ];
           break;
         case 4:
